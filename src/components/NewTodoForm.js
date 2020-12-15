@@ -15,6 +15,7 @@ function NewTodoForm(props) {
         name: e.target.name.value,
         task: e.target.task.value,
         timeOpen: firestore.FieldValue.serverTimestamp()
+        
       }
     )
   }

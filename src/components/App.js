@@ -1,12 +1,14 @@
 import '../App.css';
 import React from 'react';
+import 'firebase/auth'
+import 'firebase/firestore'
 import { Provider } from 'react-redux';
 import rootReducer from '../reducers/index';
 import firebase from '../firebase';
 import { createStore } from 'redux';
 import { createFirestoreInstance } from 'redux-firestore';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
-import Todos from './TodosControl.js'
+import TodosControl from './TodosControl.js'
 
 const rrfConfig = {
   userProfile: 'users',
@@ -29,7 +31,7 @@ function App() {
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <Todos />
+        <TodosControl />
       </ReactReduxFirebaseProvider>
     </Provider>
   );

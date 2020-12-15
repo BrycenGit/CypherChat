@@ -3,14 +3,9 @@ import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase';
 import NewTodoForm from './NewTodoForm';
 import TodoList from './TodoList';
-
-// const enhance = connect(
-//   ({ firebase: { auth, profile } }) => ({
-//     auth,
-//     profile
-//   })
-// )
-
+import NewUserForm from './NewUserForm';
+import NewMessageForm from './NewMessageForm';
+import Profile from './Profile';
 
 class TodosControl extends React.Component {
   render(){
@@ -18,6 +13,11 @@ class TodosControl extends React.Component {
     return (
       <>
         <h1>Hello World</h1>
+        <Profile />
+        <NewUserForm />
+        <hr />
+        <NewMessageForm />
+        <hr />
         <NewTodoForm />
         <TodoList />
       </>

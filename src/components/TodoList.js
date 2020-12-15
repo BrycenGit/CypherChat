@@ -3,14 +3,15 @@ import Todo from './Todo'
 import { useSelector } from 'react-redux'
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 
+
 function TodoList() {
 
   useFirestoreConnect([ 'todos' ])
 
   const todosList = useSelector(state => state.firestore.ordered.todos);
 
-  
   if (isLoaded(todosList)) {
+    console.log(todosList)
     return (
       <>
         <h1>Todo List</h1>
