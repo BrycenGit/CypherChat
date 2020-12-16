@@ -2,7 +2,6 @@ import { useFirestore } from 'react-redux-firebase'
 
 
 function NewUserForm(props) {
-  console.log(props)
 
   const firestore = useFirestore();
   

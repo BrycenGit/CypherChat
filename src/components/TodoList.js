@@ -11,7 +11,6 @@ function TodoList() {
   const todosList = useSelector(state => state.firestore.ordered.todos);
 
   if (isLoaded(todosList)) {
-    console.log(todosList)
     return (
       <>
         <h1>Todo List</h1>
