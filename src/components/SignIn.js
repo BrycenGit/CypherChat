@@ -46,18 +46,6 @@ function SignIn(props) {
     });
   }
 
-  function doSignOut() {
-    const auth = firebase.auth()
-    auth.signOut().then(function() {
-      console.log("Successfully signed out!");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
-  }
-  
-
-  
-
   return (
     <>
       <h1>New User Form</h1>

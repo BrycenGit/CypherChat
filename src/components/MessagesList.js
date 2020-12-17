@@ -1,21 +1,35 @@
 import { useSelector } from 'react-redux'
-import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
+import { useFirestore, useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 import Message from './Message';
 
 
 
 function MessagesList(props) {
   const { user } = props;
-
+  const firestore = useFirestore();
   useFirestoreConnect([{ 
     collection: 'messages'
   }])
 
   const messagesList = useSelector(state => state.firestore.ordered.messages);
 
-  if (isLoaded(messagesList)) {
+  const getMessages = () => {
+    firestore.collection("messages").get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log({id: doc.id, ...doc.data()});
+      });
+    });
+  }
 
-    const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
+  getMessages()
+
+  if (isLoaded(messagesList)) {
+    console.log(messagesList)
+    
+    console.log('hello')
+    // const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
     return (
       <>
         <h1>message List</h1>
