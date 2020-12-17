@@ -1,6 +1,7 @@
 function Message(props) {
   const { title, body, sender, recipient, user } = props;
-  const messageClass = user.email === sender ? 'sent' : 'received';
+  const messageClass = user.email === sender ? 'sent' : user.email === recipient ? 'received' : 'neither' ;
+  
   return (
     <div class={messageClass}>
       <p>title: {title}</p>
