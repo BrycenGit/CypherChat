@@ -11,7 +11,7 @@ function MessagesList(props) {
     collection: 'messages'
   }])
 
-  const messagesList = useSelector(state => state.firestore.ordered.messages);
+  const messagesList = useSelector(state => state.firestore.data.messages);
 
   const getMessages = () => {
     firestore.collection("messages").get()
@@ -23,7 +23,7 @@ function MessagesList(props) {
     });
   }
 
-  getMessages()
+  // getMessages()
 
   if (isLoaded(messagesList)) {
     console.log(messagesList)
@@ -33,7 +33,7 @@ function MessagesList(props) {
     return (
       <>
         <h1>message List</h1>
-        {messagesList.map((msg) => {
+        {Object.values(messagesList).map((msg) => {
           return <Message user={user} sender={msg.sender} recipient={msg.recipient} title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
         })}
       </>
