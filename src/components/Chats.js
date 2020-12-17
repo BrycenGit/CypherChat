@@ -14,16 +14,25 @@ function Chats(props) {
   const usersList = useSelector(state => state.firestore.ordered.users);
   const messagesRef = firestore.collection('messages')
 
+  const getMessages = () => {
+    var messages = [];
+    messagesRef.where("chat", "in",  [[user.email, 'nicolescj@aol.com'], [ 'nicolescj@aol.com', user.email]] )
+    .onSnapshot((q) => {
+        
+        q.forEach(function(doc) {
+            messages.push(doc.data());
+        });
+    });
+    return console.log(messages);
+  }
   
-
   function selectChat(e) {
     e.preventDefault();
     return console.log(e.target.email.value)
   }
 
   if (isLoaded(usersList)) {
-    console.log(usersList)
-    getUsers();
+    getMessages();
     return (
       <>
       <h1>Chats</h1>

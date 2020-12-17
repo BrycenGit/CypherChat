@@ -24,14 +24,8 @@ function MessagesList(props) {
     });
     return console.log(messages);
   }
-  
-
-  // getMessages()
 
   if (isLoaded(messagesList)) {
-    console.log(messagesList)
-    getMessages()
-    console.log('hello')
     // const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
     return (
       <>

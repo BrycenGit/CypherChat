@@ -9,6 +9,7 @@ import SignOut from './SignOut';
 import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import MessagesList from './MessagesList'
+import Chats from './Chats';
 
 
 const MessagesControl = () => {
@@ -30,12 +31,13 @@ const MessagesControl = () => {
     )
   }
   if (user) {
-    console.log(user)
     return (
       <div>
         <SignOut />
         <hr />
         <NewMessageForm user={user} />
+        <hr />
+        <Chats user={user} />
         <hr />
         <MessagesList user={user}/>
         {/* <NewTodoForm />

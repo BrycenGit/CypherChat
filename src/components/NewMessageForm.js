@@ -41,8 +41,6 @@ function NewMessageForm(props) {
     )
   }
   if (isLoaded(usersList)) {
-    console.log(usersList)
-    getUsers();
     return (
       <>
       <h1>New Message Form</h1>
