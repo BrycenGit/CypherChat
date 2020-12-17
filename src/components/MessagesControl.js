@@ -1,18 +1,19 @@
 import React from 'react';
-import { withFirestore } from 'react-redux-firebase';
+// import { withFirestore } from 'react-redux-firebase';
 import firebase from '../firebase';
 import NewTodoForm from './NewTodoForm';
 import TodoList from './TodoList';
-import NewUserForm from './NewUserForm';
 import NewMessageForm from './NewMessageForm';
 import Profile from './Profile';
 import SignIn from './SignIn';
+import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
+
+
 const MessagesControl = () => {
   
-
-  
     const [user, loading, error] = useAuthState(firebase.auth());
+
     if (loading) {
       return (
         <div>
@@ -34,12 +35,11 @@ const MessagesControl = () => {
           <h1>Hello World</h1>
           <SignIn />
           <Profile />
-          <NewUserForm />
           <hr />
           <NewMessageForm />
           <hr />
-          <NewTodoForm />
-          <TodoList />
+          {/* <NewTodoForm />
+          <TodoList /> */}
         </div>
       )
     
