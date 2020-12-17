@@ -14,20 +14,22 @@ function MessagesList(props) {
   const messagesList = useSelector(state => state.firestore.data.messages);
 
   const getMessages = () => {
-    firestore.collection("messages").get()
-    .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
-          console.log({id: doc.id, ...doc.data()});
-      });
+    var messages = [];
+    firestore.collection("messages").where("sender", "==", user.email)
+    .onSnapshot(function(querySnapshot) {
+        
+        querySnapshot.forEach(function(doc) {
+            messages.push(doc.data());
+        });
     });
+    return console.log(messages);
   }
 
   // getMessages()
 
   if (isLoaded(messagesList)) {
     console.log(messagesList)
-    
+    getMessages()
     console.log('hello')
     // const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
     return (
