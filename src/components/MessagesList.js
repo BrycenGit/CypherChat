@@ -14,12 +14,13 @@ function MessagesList(props) {
   const messagesList = useSelector(state => state.firestore.ordered.messages);
 
   if (isLoaded(messagesList)) {
+
     const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
     return (
       <>
         <h1>message List</h1>
-        {myMessagesList.map((msg) => {
-          return <Message title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
+        {messagesList.map((msg) => {
+          return <Message user={user} sender={msg.sender} recipient={msg.recipient} title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
         })}
       </>
     )

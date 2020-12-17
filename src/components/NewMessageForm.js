@@ -21,7 +21,8 @@ function NewMessageForm(props) {
           // doc.data() is never undefined for query doc snapshots
           console.log(doc.id, " => ", doc.data());
       });
-  });
+    });
+    return console.log('hello')
   }
 
   function addMessageToFirestore(e) {

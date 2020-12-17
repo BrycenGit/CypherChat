@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.sent {
+  color: red;
+}
+
+.received {
+  color: green;
+}
