@@ -1,48 +1,45 @@
 import React from 'react';
 // import { withFirestore } from 'react-redux-firebase';
 import firebase from '../firebase';
-import NewTodoForm from './NewTodoForm';
-import TodoList from './TodoList';
+// import NewTodoForm from './NewTodoForm';
+// import TodoList from './TodoList';
 import NewMessageForm from './NewMessageForm';
-import Profile from './Profile';
 import SignIn from './SignIn';
+import SignOut from './SignOut';
 import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 const MessagesControl = () => {
   
-    const [user, loading, error] = useAuthState(firebase.auth());
+  const [user, loading, error] = useAuthState(firebase.auth());
 
-    if (loading) {
-      return (
-        <div>
-        <p>Loading...</p>
-        </div>
-      )
-    }
-    if (error) {
-      return (
-        <div>
-          <p>Error: {error}</p>
-        </div>
-      )
-    }
-    if (user) {
-      console.log(user)
-      return (
-        <div>
-          <h1>Hello World</h1>
-          <SignIn />
-          <Profile />
-          <hr />
-          <NewMessageForm />
-          <hr />
-          {/* <NewTodoForm />
-          <TodoList /> */}
-        </div>
-      )
-    
+  if (loading) {
+    return (
+      <div>
+      <p>Loading...</p>
+      </div>
+    )
+  }
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error}</p>
+      </div>
+    )
+  }
+  if (user) {
+    console.log(user)
+    return (
+      <div>
+        <SignOut />
+        <hr />
+        <NewMessageForm />
+        <hr />
+        {/* <NewTodoForm />
+        <TodoList /> */}
+      </div>
+    )
   } else {
     return (
       <div>
