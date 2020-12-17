@@ -16,14 +16,15 @@ function MessagesList(props) {
   const getMessages = () => {
     var messages = [];
     firestore.collection("messages").where("sender", "==", user.email)
-    .onSnapshot(function(querySnapshot) {
+    .onSnapshot((q) => {
         
-        querySnapshot.forEach(function(doc) {
+        q.forEach(function(doc) {
             messages.push(doc.data());
         });
     });
     return console.log(messages);
   }
+  
 
   // getMessages()
 

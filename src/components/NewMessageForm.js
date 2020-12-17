@@ -32,6 +32,7 @@ function NewMessageForm(props) {
       {
         title: e.target.title.value,
         body: e.target.body.value,
+        chat: [user.email, e.target.recipientEmail.value],
         sender: user.email,
         recipient: e.target.recipientEmail.value,
         timeOpen: firestore.FieldValue.serverTimestamp()
