@@ -14,9 +14,9 @@ function Chats(props) {
   const usersList = useSelector(state => state.firestore.ordered.users);
   const messagesRef = firestore.collection('messages')
 
-  const getMessages = () => {
+  const getMessages = (recip) => {
     var messages = [];
-    messagesRef.where("chat", "in",  [[user.email, 'nicolescj@aol.com'], [ 'nicolescj@aol.com', user.email]] )
+    messagesRef.where("chat", "in",  [[user.email, recip], [ recip, user.email]] )
     .onSnapshot((q) => {
         
         q.forEach(function(doc) {
@@ -28,11 +28,12 @@ function Chats(props) {
   
   function selectChat(e) {
     e.preventDefault();
-    return console.log(e.target.email.value)
+    const recipient = e.target.recipient.value
+    return getMessages(recipient);
   }
 
   if (isLoaded(usersList)) {
-    getMessages();
+
     return (
       <>
       <h1>Chats</h1>
@@ -40,7 +41,7 @@ function Chats(props) {
         
         {usersList.map((user)=>{
           return (<div key={user.id}>
-            <input name="recipientEmail" type="radio" value={user.email} />
+            <input name="recipient" type="radio" value={user.email} />
             <label htmlFor={user.email} >{user.email}</label>
             <br />
           </div>)
