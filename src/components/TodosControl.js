@@ -8,7 +8,7 @@ import NewMessageForm from './NewMessageForm';
 import Profile from './Profile';
 import SignIn from './SignIn';
 import { useAuthState } from 'react-firebase-hooks/auth';
-const TodosControl = () => {
+const MessagesControl = () => {
   
 
   
@@ -56,4 +56,4 @@ const TodosControl = () => {
 // TodosControl = connect()(TodosControl)
 
 
-export default TodosControl;
+export default MessagesControl;
