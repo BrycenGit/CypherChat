@@ -1,12 +1,15 @@
 import { useFirestore, useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 import { useSelector } from 'react-redux'
+import React, { useState } from 'react';
+import Message from './Message'
 
 function Chats(props) {
   
   const firestore = useFirestore();
 
   const { user } = props;
-
+  const [chat, setChat] = useState([])
+  
   useFirestoreConnect([{ 
     collection: 'users'
   }])
@@ -23,7 +26,7 @@ function Chats(props) {
             messages.push(doc.data());
         });
     });
-    return console.log(messages);
+    return messages;
   }
   
   function selectChat(e) {
@@ -33,11 +36,11 @@ function Chats(props) {
   }
 
   if (isLoaded(usersList)) {
-
+    console.log(chat)
     return (
       <>
       <h1>Chats</h1>
-      <form onSubmit={selectChat}>
+      <form onSubmit={(e)=> setChat(selectChat(e))}>
         
         {usersList.map((user)=>{
           return (<div key={user.id}>
@@ -50,6 +53,10 @@ function Chats(props) {
         <br />
         <button type="submit">Submit</button>
       </form>
+      <h1>message List</h1>
+        {chat.map((msg) => {
+          return <Message user={user} sender={msg.sender} recipient={msg.recipient} title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
+        })}
       </>
     )
   } else {
