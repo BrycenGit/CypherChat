@@ -15,6 +15,15 @@ function NewMessageForm(props) {
 
   const messagesRef = firestore.collection('messages')
 
+  function getUsers() {
+    firestore.collection("users").get().then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+      });
+  });
+  }
+
   function addMessageToFirestore(e) {
     e.preventDefault();
     
@@ -31,6 +40,7 @@ function NewMessageForm(props) {
   }
   if (isLoaded(usersList)) {
     console.log(usersList)
+    getUsers();
     return (
       <>
       <h1>New Message Form</h1>
@@ -44,7 +54,7 @@ function NewMessageForm(props) {
         <label htmlFor="recipientEmail">Recipient Email</label>
         {/* <input name="recipientEmail" type="text" /> */}
         {usersList.map((user)=>{
-          return (<div>
+          return (<div key={user.id}>
             <input name="recipientEmail" type="radio" value={user.email} />
             <label htmlFor={user.email} >{user.email}</label>
             <br />
