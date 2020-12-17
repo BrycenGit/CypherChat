@@ -8,6 +8,7 @@ import SignIn from './SignIn';
 import SignOut from './SignOut';
 import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import MessagesList from './MessagesList'
 
 
 const MessagesControl = () => {
@@ -36,6 +37,7 @@ const MessagesControl = () => {
         <hr />
         <NewMessageForm />
         <hr />
+        <MessagesList user={user}/>
         {/* <NewTodoForm />
         <TodoList /> */}
       </div>
