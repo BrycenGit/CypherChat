@@ -8,10 +8,9 @@ function MessagesList(props) {
   const { user } = props;
 
   useFirestoreConnect([{ 
-    collection: 'messages',
-    recipient: user.email, 
+    collection: 'messages'
   }])
-  console.log(user.email)
+
   const messagesList = useSelector(state => state.firestore.ordered.messages);
 
   if (isLoaded(messagesList)) {

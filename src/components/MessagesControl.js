@@ -35,7 +35,7 @@ const MessagesControl = () => {
       <div>
         <SignOut />
         <hr />
-        <NewMessageForm />
+        <NewMessageForm user={user} />
         <hr />
         <MessagesList user={user}/>
         {/* <NewTodoForm />
