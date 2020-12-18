@@ -23,7 +23,7 @@ function NewMessageForm(props) {
       {
         // title: e.target.title.value,
         body: e.target.body.value,
-        chat: sortedEmails.join('-'),
+        chat: [sortedEmails.join('-')],
         sender: currentUser.email,
         recipient: recipientEmail,
         timeOpen: firestore.FieldValue.serverTimestamp()
