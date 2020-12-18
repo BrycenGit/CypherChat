@@ -8,7 +8,7 @@ function MessagesList(props) {
   const firestore = useFirestore();
   const { user, recipientEmail } = props;
 
-  const messagesRef = firestore.collection('messages').where("chat", "in",  [[user.email, recipientEmail], [ recipientEmail, user.email]] )
+  const messagesRef = firestore.collection('messages').where("chat", "in",  [[user.email, recipientEmail], [ recipientEmail, user.email]] ).orderBy('chats')
   // .orderBy('timeOpen').limit(10);
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
   
