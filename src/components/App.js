@@ -10,19 +10,13 @@ function App() {
   const auth = firebase.auth()
   const [user] = useAuthState(auth);
   
-  // return (
-  //   <div className='App'>
-  //     <MessagesControl />
-  //   </div>
-  // );
-
   return (
     <div className='App'>
       <header>
         <h1>👽👾🤖</h1><SignOut />
       </header>
       <section>
-        {user ? <MessagesControl /> : <SignIn />}
+        {user ? <MessagesControl user={user} /> : <SignIn />}
       </section>
     </div>
     

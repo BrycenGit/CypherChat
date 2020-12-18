@@ -13,9 +13,10 @@ import {blankPageReducer} from '../reducers/blank-page-reducer'
 import {chatSelectionReducer} from '../reducers/chat-selection-reducer'
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-const MessagesControl = () => { 
-  const [user, loading, error] = useAuthState(firebase.auth());
+const MessagesControl = (props) => { 
+  // const [user, loading, error] = useAuthState(firebase.auth());
   // console.log(user.email)
+  const {user} = props;
 
   const [blankPage, dispatch1] = useReducer(blankPageReducer)
 
@@ -54,35 +55,31 @@ const MessagesControl = () => {
         <button onClick={handleblankClick}>Not Blank</button>
       </div>
     )
-  } else if (loading) {
-    return (
-      <div>
-      <p>Loading...</p>
-      </div>
-    )
-  } else if (error) {
-    return (
-      <div>
-        <p>Error: {error}</p>
-      </div>
-    )
-  } else if (user) {
-    console.log()
+  // } else if (loading) {
+  //   return (
+  //     <div>
+  //     <p>Loading...</p>
+  //     </div>
+  //   )
+  // } else if (error) {
+  //   return (
+  //     <div>
+  //       <p>Error: {error}</p>
+  //     </div>
+  //   )
+  } else {
     return (
       <div>
         <h1>{user.email}</h1>
         <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat} />
-        <hr />
-        {/* <NewMessageForm currentUser={user} handleSelectChat={handleSelectChat}/>
-        <hr /> */}
       </div>
     )
-  } else {
-    return (
-      <div>
-        <SignIn />
-      </div>
-    )
+  // } else {
+  //   return (
+  //     <div>
+  //       <SignIn />
+  //     </div>
+    // )
   }  
 }
 
