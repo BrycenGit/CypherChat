@@ -37,15 +37,6 @@
   }
 }
 
-.sent {
-  color: red;
-  flex-direction: row-reverse;
-}
-
-.received {
-  color: green;
-}
-
 /* .App {
   text-align: center;
   max-width: 728px;
@@ -81,4 +72,18 @@ button {
   display: inline-block;
   cursor: pointer;
   font-size: 1.25rem;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.sent {
+  color: red;
+  flex-direction: row-reverse;
+}
+
+.received {
+  color: green;
 }
