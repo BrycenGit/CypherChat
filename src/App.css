@@ -74,6 +74,23 @@ button {
   font-size: 1.25rem;
 }
 
+form {
+  /* 
+   */
+}
+
+input {
+  line-height: 1.5;
+  width: 100%;
+  font-size: 1.5rem;
+  background: black;
+  color: #f9e900;
+  outline: none;
+  border: none;
+  padding: 0 10px;
+  animation: text-flicker 3s linear infinite;
+}
+
 .message {
   display: flex;
   align-items: center;

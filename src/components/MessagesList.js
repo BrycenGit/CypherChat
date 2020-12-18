@@ -1,6 +1,7 @@
 import {useFirestore, isLoaded } from 'react-redux-firebase'
 import Message from './Message';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import NewMessageForm from './NewMessageForm';
 
 
 function MessagesList(props) {
@@ -15,6 +16,7 @@ function MessagesList(props) {
     messagesList.sort((a,b) => b.timeOpen - a.timeOpen);
     return (
       <>
+      <NewMessageForm recipientEmail={recipientEmail} currentUser={user} />
         <h1>message List</h1>
         {messagesList && messagesList.map((msg) => {
           return (<div key={msg.id}>

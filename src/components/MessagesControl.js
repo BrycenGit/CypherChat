@@ -73,8 +73,8 @@ const MessagesControl = () => {
         <h1>{user.email}</h1>
         <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat} />
         <hr />
-        <NewMessageForm currentUser={user} handleSelectChat={handleSelectChat}/>
-        <hr />
+        {/* <NewMessageForm currentUser={user} handleSelectChat={handleSelectChat}/>
+        <hr /> */}
       </div>
     )
   } else {
