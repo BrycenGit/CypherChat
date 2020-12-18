@@ -6,7 +6,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import PropTypes from 'prop-types';
 
 function Chats(props) {
-  const {handleblankClick} = props
+  const {handleblankClick, handleSelectChat} = props
+  console.log(handleSelectChat)
   const firestore = useFirestore();
   const { user } = props;
   const [chat, setChat] = useState([])
@@ -42,6 +43,7 @@ function Chats(props) {
     e.preventDefault()
     alert('clicked me')
     setRecip(e.target.recipient.value)
+    handleSelectChat()
   }
 
   if ((isLoaded(usersList)) && (isLoaded(messages))) {
@@ -63,7 +65,7 @@ function Chats(props) {
         <button type="submit">Submit</button>
       </form>
 
-      <button onClick={props.handleblankClick}>Blank</button>
+      <button onClick={handleblankClick}>Blank</button>
       <h1>message List</h1>
         {messages && messages.map((msg) => {
           console.log('hello')

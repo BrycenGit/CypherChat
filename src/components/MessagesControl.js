@@ -12,18 +12,36 @@ import MessagesList from './MessagesList'
 import Chats from './Chats';
 import * as a from './../actions';
 import blankPageReducer from '../reducers/blank-page-reducer'
+import chatSelectionReducer from '../reducers/chat-selection-reducer'
 
 const MessagesControl = (props) => {
   
   const [user, loading, error] = useAuthState(firebase.auth());
   // const [blankPage, setBlankPage] = useState(false)
 
-  const [blankPage, dispatch] = useReducer(blankPageReducer)
+  const [blankPage, dispatch1] = useReducer(blankPageReducer)
 
-  const handleblankClick = () => {
-    dispatch({type: 'TOGGLE_BLANK'});
+  const [selectedChat, dispatch2] = useReducer(chatSelectionReducer)
+
+  const handleSelectChat = () => {
+    dispatch2({type: 'SELECT_CHAT'})
   }
 
+  // const handleUnselectChat = () => {
+  //   dispatch(a.unselectChat())
+  // }
+
+  const handleblankClick = () => {
+    dispatch1({type: 'TOGGLE_BLANK'});
+  }
+
+  if (selectedChat) {
+    return (
+      <div>
+        <h1>chat page</h1>
+      </div>
+    )
+  }
   if (blankPage) {
     return (
       <div>
@@ -56,7 +74,7 @@ const MessagesControl = (props) => {
         <hr />
         <NewMessageForm user={user} />
         <hr />
-        <Chats handleblankClick={handleblankClick} user={user} />
+        <Chats handleblankClick={handleblankClick} user={user} handleSelectChat={handleSelectChat}/>
         <hr />
         <MessagesList user={user}/>
         {/* <NewTodoForm />
