@@ -71,8 +71,6 @@ const MessagesControl = () => {
     return (
       <div>
         <h1>{user.email}</h1>
-        <SignOut />
-        <hr />
         <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat} />
         <hr />
         <NewMessageForm currentUser={user} handleSelectChat={handleSelectChat}/>
