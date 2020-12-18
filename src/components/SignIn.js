@@ -6,7 +6,6 @@ function SignIn(props) {
  
   const firestore = useFirestore();
 
-
   function doSignUp(e) {
     e.preventDefault();
     const auth = firebase.auth()
@@ -80,7 +79,5 @@ function SignIn(props) {
     </>
   )
 }
-
-
 
 export default SignIn;

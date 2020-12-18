@@ -1,8 +1,5 @@
 import React, { useReducer, useState } from 'react';
-// import { withFirestore } from 'react-redux-firebase';
 import firebase from '../firebase';
-// import NewTodoForm from './NewTodoForm';
-// import TodoList from './TodoList';
 import NewMessageForm from './NewMessageForm';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
@@ -17,7 +14,6 @@ import chatSelectionReducer from '../reducers/chat-selection-reducer'
 const MessagesControl = (props) => {
   
   const [user, loading, error] = useAuthState(firebase.auth());
-  // const [blankPage, setBlankPage] = useState(false)
 
   const [blankPage, dispatch1] = useReducer(blankPageReducer)
 
@@ -26,10 +22,6 @@ const MessagesControl = (props) => {
   const handleSelectChat = () => {
     dispatch2({type: 'SELECT_CHAT'})
   }
-
-  // const handleUnselectChat = () => {
-  //   dispatch(a.unselectChat())
-  // }
 
   const handleblankClick = () => {
     dispatch1({type: 'TOGGLE_BLANK'});
@@ -90,9 +82,5 @@ const MessagesControl = (props) => {
     )
   }  
 }
-
-
-// TodosControl = connect()(TodosControl)
-
 
 export default MessagesControl;

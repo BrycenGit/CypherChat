@@ -18,7 +18,6 @@ function NewMessageForm(props) {
   function getUsers() {
     firestore.collection("users").get().then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
           console.log(doc.id, " => ", doc.data());
       });
     });
@@ -52,7 +51,6 @@ function NewMessageForm(props) {
         <input name="body" type="text" />
         <br />
         <label htmlFor="recipientEmail">Recipient Email</label>
-        {/* <input name="recipientEmail" type="text" /> */}
         {usersList.map((user)=>{
           return (<div key={user.id}>
             <input name="recipientEmail" type="radio" value={user.email} />
@@ -73,7 +71,5 @@ function NewMessageForm(props) {
     )
   }
 }
-
-
 
 export default NewMessageForm;

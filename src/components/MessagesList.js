@@ -5,28 +5,16 @@ import Message from './Message';
 
 
 function MessagesList(props) {
-  const { user } = props;
   const firestore = useFirestore();
+  const { user } = props;
+
   useFirestoreConnect([{ 
     collection: 'messages'
   }])
 
   const messagesList = useSelector(state => state.firestore.data.messages);
 
-  // const getMessages = () => {
-  //   var messages = [];
-  //   firestore.collection("messages").where("sender", "==", user.email)
-  //   .onSnapshot((q) => {
-        
-  //       q.forEach(function(doc) {
-  //           messages.push(doc.data());
-  //       });
-  //   });
-  //   return console.log(messages);
-  // }
-
   if (isLoaded(messagesList)) {
-    // const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
     return (
       <>
         <h1>message List</h1>
