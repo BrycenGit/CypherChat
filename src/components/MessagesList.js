@@ -9,8 +9,11 @@ function MessagesList(props) {
   const { user, recipientEmail } = props;
   const emailArray = [user.email, recipientEmail]
   const sortedEmails = emailArray.sort((a, b) => a.localeCompare(b))
-  console.log(sortedEmails.join('-'))
-  const messagesRef = firestore.collection('messages').where("chat", "array-contains",  sortedEmails.join('-') )
+  const collectionName = sortedEmails.join('-')
+  const messagesRef = firestore.collection(collectionName).orderBy('timeOpen').limit(10);
+  
+  
+  // .where("chat", "array-contains",  sortedEmails.join('-') )
 
   // .orderBy('timeOpen').limit(10);
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
