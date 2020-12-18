@@ -17,7 +17,7 @@ function Chats(props) {
   const doSomething = (e) => {
     e.preventDefault()
     setRecip(e.target.recipient.value)
-    handleSelectChat()
+    handleSelectChat(e.target.recipient.value)
   }
 
   if ((isLoaded(usersList)) && (isLoaded(messages))) {
