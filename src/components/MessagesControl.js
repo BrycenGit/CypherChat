@@ -25,10 +25,7 @@ const MessagesControl = () => {
 
   const handleSelectChat = (recipientEmail) => {
     setRecipient(recipientEmail);
-    console.log(recipient)
     dispatch2({type: 'SELECT_CHAT', recipient: recipientEmail})
-    
-    
   }
 
   const handleUnselectChat = () => {
@@ -47,7 +44,6 @@ const MessagesControl = () => {
       <div>
         <h1>chat page</h1>
         <button onClick={handleUnselectChat}>home</button>
-        {/* <Chats handleblankClick={handleblankClick}  currentUser={user} handleSelectChat={handleSelectChat}/> */}
         <MessagesList user={user} recipientEmail={recipient}/>
       </div>
     )
@@ -81,7 +77,6 @@ const MessagesControl = () => {
         <hr />
         <NewMessageForm currentUser={user} handleSelectChat={handleSelectChat}/>
         <hr />
-        {/* <MessagesList user={user}/> */}
       </div>
     )
   } else {

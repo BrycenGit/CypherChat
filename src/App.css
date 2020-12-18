@@ -39,8 +39,13 @@
 
 .sent {
   color: red;
+  flex-direction: row-reverse;
 }
 
 .received {
   color: green;
+}
+
+.App {
+  display: flex;
 }

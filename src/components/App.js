@@ -5,9 +5,9 @@ import MessagesControl from './MessagesControl.js'
 function App() {
   
   return (
-    <>
+    <div className='App'>
       <MessagesControl />
-    </>
+    </div>
   );
 }
 
