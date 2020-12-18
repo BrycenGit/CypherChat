@@ -39,6 +39,7 @@ const MessagesControl = (props) => {
     return (
       <div>
         <h1>chat page</h1>
+        <button onClick={handleSelectChat}>home</button>
       </div>
     )
   }
