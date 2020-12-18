@@ -29,7 +29,7 @@ function NewMessageForm(props) {
     return (
       <>
       <h1>New Message Form</h1>
-      <form onSubmit={addMessageToFirestore}>
+      <form class='messageForm' onSubmit={addMessageToFirestore}>
         {/* <label htmlFor="title">Title</label>
         <input name="title" type="text" />
         <br /> */}

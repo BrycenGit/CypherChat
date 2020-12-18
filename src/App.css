@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .App header {
@@ -74,15 +74,19 @@ button {
   font-size: 1.25rem;
 }
 
-form {
+form .messageInput {
   display: flex;
   flex-wrap: wrap;
   width: 85%;
   margin: 0 auto;
+  align-items: center;
 }
-
+.message {
+  display: flex;
+  align-items: center;
+}
 input {
-  line-height: 1.5;
+  line-height: 40px;
   width: 100%;
   font-size: 1.5rem;
   background: black;
@@ -91,17 +95,15 @@ input {
   border: none;
   padding: 0 10px;
   animation: text-flicker 3s linear infinite;
+  /* flex: 2 0 250px; */
 }
 
 form button {
-  /* width: 20%; */
-  flex: 1 0 90px;
-  background-color: #ff0000d5;
-}
+  /* height: 40px; */
 
-.message {
-  display: flex;
-  align-items: center;
+  flex: 1 0 90px;
+  vertical-align: middle;
+  background-color: #ff0000d5;
 }
 
 .sent {
