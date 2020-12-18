@@ -75,8 +75,10 @@ button {
 }
 
 form {
-  /* 
-   */
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
 }
 
 input {
@@ -89,6 +91,12 @@ input {
   border: none;
   padding: 0 10px;
   animation: text-flicker 3s linear infinite;
+}
+
+form button {
+  /* width: 20%; */
+  flex: 1 0 90px;
+  background-color: #ff0000d5;
 }
 
 .message {
