@@ -4,6 +4,7 @@ import {
   isLoaded,
 } from "react-redux-firebase";
 import { useSelector } from "react-redux";
+import React, { useState } from "react";
 
 function NewMessageForm(props) {
   const firestore = useFirestore();
@@ -22,10 +23,12 @@ function NewMessageForm(props) {
 
   const chatRef = firestore.collection(collectionName);
 
-  function addMessageToFirestore(e) {
+  const [formValue, setFormValue] = useState("");
+
+  async function addMessageToFirestore(e) {
     e.preventDefault();
 
-    return chatRef.add({
+    await chatRef.add({
       // title: e.target.title.value,
       body: e.target.body.value,
       // chat: [sortedEmails.join('-')],
@@ -33,7 +36,9 @@ function NewMessageForm(props) {
       recipient: recipientEmail,
       timeOpen: firestore.FieldValue.serverTimestamp(),
     });
+    setFormValue("");
   }
+
   return (
     <>
       <h1>New Message Form</h1>
@@ -43,7 +48,13 @@ function NewMessageForm(props) {
         <br /> */}
         {/* <label htmlFor="body">Body</label> */}
         <div class="flex-form">
-          <input name="body" type="text" />
+          <input
+            name="body"
+            value={formValue}
+            onChange={(e1) => {
+              setFormValue(e1.target.value);
+            }}
+          />
 
           <button type="submit">Submit</button>
         </div>
