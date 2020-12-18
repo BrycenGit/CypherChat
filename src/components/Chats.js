@@ -18,6 +18,7 @@ function Chats(props) {
     e.preventDefault()
     setRecip(e.target.recipient.value)
     handleSelectChat(e.target.recipient.value)
+
   }
 
   if ((isLoaded(usersList)) && (isLoaded(messages))) {
@@ -25,7 +26,7 @@ function Chats(props) {
     return (
       <>
       <h1>Chats</h1>
-      <form onSubmit={doSomething}>
+      <form onSubmit={(e)=> doSomething(e)}>
         
         {filteredUsers.map((user)=>{
           return (<div key={user.id}>

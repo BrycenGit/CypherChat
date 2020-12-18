@@ -1,7 +1,9 @@
 export const chatSelectionReducer = (state = null, action) => {
+  const {recipient} = action;
   switch (action.type) {
   case 'SELECT_CHAT':
-    return action.recipient;
+    console.log(recipient)
+    return recipient;
   case "UNSELECT_CHAT":
     return null;
   default:

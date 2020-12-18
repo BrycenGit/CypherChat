@@ -38,12 +38,13 @@ const MessagesControl = () => {
 
   
   if (selectedChat != null) {
+    console.log(firebase.firestore())
     return (
       <div>
         <h1>chat page</h1>
-
-        <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat}/>
         <button onClick={handleUnselectChat}>home</button>
+        <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat}/>
+        
       </div>
     )
   } else if (blankPage) {
