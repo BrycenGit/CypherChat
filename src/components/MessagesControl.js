@@ -32,6 +32,7 @@ const MessagesControl = () => {
   }
 
   const handleUnselectChat = () => {
+    setRecipient(null)
     dispatch2({type: 'UNSELECT_CHAT'})
   }
 
@@ -80,7 +81,7 @@ const MessagesControl = () => {
         <hr />
         <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat} />
         <hr />
-        <NewMessageForm currentUser={user} />
+        <NewMessageForm currentUser={user} handleSelectChat={handleSelectChat}/>
         <hr />
         {/* <MessagesList user={user}/> */}
       </div>

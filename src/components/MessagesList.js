@@ -12,6 +12,7 @@ function MessagesList(props) {
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
 
   if (isLoaded(messagesList)) {
+    messagesList.sort((a,b) => b.timeOpen - a.timeOpen);
     return (
       <>
         <h1>message List</h1>

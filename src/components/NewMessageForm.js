@@ -5,7 +5,7 @@ function NewMessageForm(props) {
   
   const firestore = useFirestore();
 
-  const { currentUser } = props;
+  const { currentUser, handleSelectChat } = props;
 
   useFirestoreConnect([{ 
     collection: 'users'
@@ -26,7 +26,7 @@ function NewMessageForm(props) {
 
   function addMessageToFirestore(e) {
     e.preventDefault();
-    
+    handleSelectChat(e.target.recipientEmail.value)
     return messagesRef.add(
       {
         title: e.target.title.value,
@@ -38,6 +38,7 @@ function NewMessageForm(props) {
         
       }
     )
+
   }
   if (isLoaded(usersList)) {
     const filteredUsers = usersList.filter(user => user.email !== currentUser.email)
