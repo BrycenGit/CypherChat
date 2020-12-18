@@ -40,9 +40,7 @@ function Chats(props) {
   const doSomething = (e) => {
     e.preventDefault()
     alert('clicked me')
-    
     setRecip(e.target.recipient.value)
-    
   }
 
   if ((isLoaded(usersList)) && (isLoaded(messages))) {
@@ -78,7 +76,5 @@ function Chats(props) {
     )
   }
 }
-
-
 
 export default Chats;
