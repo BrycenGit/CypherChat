@@ -5,9 +5,10 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 function MessagesList(props) {
   const firestore = useFirestore();
-  const { user } = props;
+  const { user, recipientEmail } = props;
 
-  const messagesRef = firestore.collection('messages').orderBy('timeOpen').limit(10);
+  const messagesRef = firestore.collection('messages').where("chat", "in",  [[user.email, recipientEmail], [ recipientEmail, user.email]] )
+  // .orderBy('timeOpen').limit(10);
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
 
   if (isLoaded(messagesList)) {

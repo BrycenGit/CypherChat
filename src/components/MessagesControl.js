@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import firebase from '../firebase';
 import { useFirestore, isLoaded } from 'react-redux-firebase'
 import NewMessageForm from './NewMessageForm';
@@ -11,7 +11,7 @@ import Chats from './Chats';
 // import * as a from './../actions';
 import {blankPageReducer} from '../reducers/blank-page-reducer'
 import {chatSelectionReducer} from '../reducers/chat-selection-reducer'
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const MessagesControl = () => { 
   const [user, loading, error] = useAuthState(firebase.auth());
@@ -21,8 +21,14 @@ const MessagesControl = () => {
 
   const [selectedChat, dispatch2] = useReducer(chatSelectionReducer)
 
+  const [recipient, setRecipient] = useState(null)
+
   const handleSelectChat = (recipientEmail) => {
+    setRecipient(recipientEmail);
+    console.log(recipient)
     dispatch2({type: 'SELECT_CHAT', recipient: recipientEmail})
+    
+    
   }
 
   const handleUnselectChat = () => {
@@ -38,13 +44,12 @@ const MessagesControl = () => {
 
   
   if (selectedChat != null) {
-    console.log(firebase.firestore())
     return (
       <div>
         <h1>chat page</h1>
         <button onClick={handleUnselectChat}>home</button>
-        <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat}/>
-        
+        {/* <Chats handleblankClick={handleblankClick}  currentUser={user} handleSelectChat={handleSelectChat}/> */}
+        <MessagesList user={user} recipientEmail={recipient}/>
       </div>
     )
   } else if (blankPage) {
