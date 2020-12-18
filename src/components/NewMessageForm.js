@@ -29,14 +29,16 @@ function NewMessageForm(props) {
     return (
       <>
       <h1>New Message Form</h1>
-      <form class='messageForm' onSubmit={addMessageToFirestore}>
+      <form onSubmit={addMessageToFirestore}>
         {/* <label htmlFor="title">Title</label>
         <input name="title" type="text" />
         <br /> */}
         {/* <label htmlFor="body">Body</label> */}
+        <div class='flex-form'>
         <input name="body" type="text" />
 
         <button type="submit">Submit</button>
+        </div>
       </form>
       </>
     )
