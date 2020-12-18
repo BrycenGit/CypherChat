@@ -8,10 +8,10 @@ function MessagesList(props) {
   const firestore = useFirestore();
   const { user, recipientEmail } = props;
 
-  const messagesRef = firestore.collection('messages').where("chat", "in",  [[user.email, recipientEmail], [ recipientEmail, user.email]] ).orderBy('chats')
+  const messagesRef = firestore.collection('messages').where("chat", "array-contains-any",  [[user.email, recipientEmail], [ recipientEmail, user.email]] )
+
   // .orderBy('timeOpen').limit(10);
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
-  
 
   if (isLoaded(messagesList)) {
     // messagesList.sort((a,b) => b.timeOpen - a.timeOpen);
