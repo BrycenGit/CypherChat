@@ -15,11 +15,15 @@ function NewMessageForm(props) {
 
   function addMessageToFirestore(e) {
     e.preventDefault();
+    const emailArray = [currentUser.email, recipientEmail]
+    console.log(emailArray)
+    const sortedEmails = emailArray.sort((a, b) => a.localeCompare(b))
+    console.log(sortedEmails.join('-'))
     return messagesRef.add(
       {
         // title: e.target.title.value,
         body: e.target.body.value,
-        chat: [currentUser.email, recipientEmail],
+        chat: sortedEmails.join('-'),
         sender: currentUser.email,
         recipient: recipientEmail,
         timeOpen: firestore.FieldValue.serverTimestamp()

@@ -7,8 +7,10 @@ import NewMessageForm from './NewMessageForm';
 function MessagesList(props) {
   const firestore = useFirestore();
   const { user, recipientEmail } = props;
-
-  const messagesRef = firestore.collection('messages').where("chat", "array-contains-any",  [[user.email, recipientEmail], [ recipientEmail, user.email]] )
+  const emailArray = [user.email, recipientEmail]
+  const sortedEmails = emailArray.sort((a, b) => a.localeCompare(b))
+  console.log(sortedEmails.join('-'))
+  const messagesRef = firestore.collection('messages').where("chat", "==",  sortedEmails.join('-') )
 
   // .orderBy('timeOpen').limit(10);
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
