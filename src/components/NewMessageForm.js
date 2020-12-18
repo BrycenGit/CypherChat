@@ -17,7 +17,7 @@ function NewMessageForm(props) {
     e.preventDefault();
     return messagesRef.add(
       {
-        title: e.target.title.value,
+        // title: e.target.title.value,
         body: e.target.body.value,
         chat: [currentUser.email, recipientEmail],
         sender: currentUser.email,
@@ -30,12 +30,12 @@ function NewMessageForm(props) {
       <>
       <h1>New Message Form</h1>
       <form onSubmit={addMessageToFirestore}>
-        <label htmlFor="title">Title</label>
+        {/* <label htmlFor="title">Title</label>
         <input name="title" type="text" />
-        <br />
-        <label htmlFor="body">Body</label>
+        <br /> */}
+        {/* <label htmlFor="body">Body</label> */}
         <input name="body" type="text" />
-        <br />
+
         <button type="submit">Submit</button>
       </form>
       </>

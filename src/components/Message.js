@@ -4,8 +4,8 @@ function Message(props) {
 
   return (
     <div className={`message ${messageClass}`}>
-      <p>title: {title}</p>
-      <p>body: {body}</p>
+      {/* <p>title: {title}</p> */}
+      <p>{body}</p>
     </div>
   )
 }
