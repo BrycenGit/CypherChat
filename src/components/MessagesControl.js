@@ -11,7 +11,7 @@ import Chats from './Chats';
 import {blankPageReducer} from '../reducers/blank-page-reducer'
 import {chatSelectionReducer} from '../reducers/chat-selection-reducer'
 
-const MessagesControl = (props) => {
+const MessagesControl = () => {
   
   const [user, loading, error] = useAuthState(firebase.auth());
 
@@ -25,6 +25,35 @@ const MessagesControl = (props) => {
 
   const handleblankClick = () => {
     dispatch1({type: 'TOGGLE_BLANK'});
+  }
+
+
+  render() {
+    let currentState = null
+
+    if (selectChat) {
+      currentState = <div><h1>Chat Page</h1></div>
+    } else if (user) {
+      currentState = 
+      <div>
+      <h1>{user.email}</h1>
+      <SignOut />
+      <hr />
+      <NewMessageForm currentUser={user} />
+      <hr />
+      <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat}/>
+      <hr />
+      <MessagesList user={user}/>
+      </div>
+    } else {
+      currentState = <SignIn />
+    }
+
+    return (
+      <div>
+        {currentState}
+      </div>
+    )
   }
 
   if (selectedChat) {
