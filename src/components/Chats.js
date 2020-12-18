@@ -24,6 +24,14 @@ function Chats(props) {
     return (
       <>
         <h1>Chats</h1>
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            {usersList.map((user) => {
+              return <a href="#">{user.username}</a>;
+            })}
+          </div>
+        </div>
         <form onSubmit={(e) => doSomething(e)}>
           {usersList.map((user) => {
             return (
