@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { withFirestore } from 'react-redux-firebase';
 import firebase from '../firebase';
 // import NewTodoForm from './NewTodoForm';
@@ -11,11 +11,19 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import MessagesList from './MessagesList'
 import Chats from './Chats';
 
-
-const MessagesControl = () => {
+const MessagesControl = (props) => {
   
   const [user, loading, error] = useAuthState(firebase.auth());
+  const [blankPage, setBlankPage] = useState(false)
 
+  if (blankPage) {
+    return (
+      <div>
+        <h1>BlankPage</h1>
+        <button onClick={()=>setBlankPage(!blankPage)}>Not Blank</button>
+      </div>
+    )
+  }
   if (loading) {
     return (
       <div>
@@ -31,13 +39,16 @@ const MessagesControl = () => {
     )
   }
   if (user) {
+    console.log()
     return (
       <div>
+        <button onClick={()=>setBlankPage(!blankPage)}>Blank</button>
+        <h1>{user.email}</h1>
         <SignOut />
         <hr />
         <NewMessageForm user={user} />
         <hr />
-        <Chats user={user} />
+        <Chats setBlankPage={setBlankPage} user={user} />
         <hr />
         <MessagesList user={user}/>
         {/* <NewTodoForm />

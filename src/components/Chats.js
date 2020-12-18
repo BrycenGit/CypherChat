@@ -5,7 +5,7 @@ import Message from './Message'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 function Chats(props) {
-  
+  const {setBlankPage} = props
   const firestore = useFirestore();
   const { user } = props;
   const [chat, setChat] = useState([])
@@ -61,6 +61,8 @@ function Chats(props) {
         <br />
         <button type="submit">Submit</button>
       </form>
+
+      <button onClick={()=>setBlankPage(!this.state.blankPage)}>Blank</button>
       <h1>message List</h1>
         {messages && messages.map((msg) => {
           console.log('hello')
