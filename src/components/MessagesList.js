@@ -11,9 +11,10 @@ function MessagesList(props) {
   const messagesRef = firestore.collection('messages').where("chat", "in",  [[user.email, recipientEmail], [ recipientEmail, user.email]] )
   // .orderBy('timeOpen').limit(10);
   const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
+  
 
   if (isLoaded(messagesList)) {
-    messagesList.sort((a,b) => b.timeOpen - a.timeOpen);
+    // messagesList.sort((a,b) => b.timeOpen - a.timeOpen);
     return (
       <>
       <NewMessageForm recipientEmail={recipientEmail} currentUser={user} />
