@@ -17,7 +17,7 @@ function Chats(props) {
       <>
         <h1>Chats</h1>
         <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
+          <button class="dropbtn">Users</button>
           <div class="dropdown-content">
             {usersList.map((user) => {
               return (
