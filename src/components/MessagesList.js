@@ -1,25 +1,23 @@
-import { useSelector } from 'react-redux'
-import { useFirestore, useFirestoreConnect, isLoaded } from 'react-redux-firebase'
+import {useFirestore, isLoaded } from 'react-redux-firebase'
 import Message from './Message';
-
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 
 function MessagesList(props) {
   const firestore = useFirestore();
   const { user } = props;
 
-  useFirestoreConnect([{ 
-    collection: 'messages'
-  }])
-
-  const messagesList = useSelector(state => state.firestore.data.messages);
+  const messagesRef = firestore.collection('messages').orderBy('timeOpen').limit(10);
+  const [messagesList] = useCollectionData(messagesRef, {idField: 'id'});
 
   if (isLoaded(messagesList)) {
     return (
       <>
         <h1>message List</h1>
-        {Object.values(messagesList).map((msg) => {
-          return <Message user={user} sender={msg.sender} recipient={msg.recipient} title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
+        {messagesList && messagesList.map((msg) => {
+          return (<div key={msg.id}>
+           <Message user={user} sender={msg.sender} recipient={msg.recipient} title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
+          </div>)
         })}
       </>
     )

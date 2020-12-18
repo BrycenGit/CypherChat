@@ -15,14 +15,14 @@ function NewMessageForm(props) {
 
   const messagesRef = firestore.collection('messages')
 
-  function getUsers() {
-    firestore.collection("users").get().then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          console.log(doc.id, " => ", doc.data());
-      });
-    });
-    return console.log('hello')
-  }
+  // function getUsers() {
+  //   firestore.collection("users").get().then(function(querySnapshot) {
+  //     querySnapshot.forEach(function(doc) {
+  //         console.log(doc.id, " => ", doc.data());
+  //     });
+  //   });
+  //   return console.log('hello')
+  // }
 
   function addMessageToFirestore(e) {
     e.preventDefault();

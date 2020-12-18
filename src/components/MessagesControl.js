@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import firebase from '../firebase';
 import NewMessageForm from './NewMessageForm';
 import SignIn from './SignIn';
@@ -7,9 +7,9 @@ import 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import MessagesList from './MessagesList'
 import Chats from './Chats';
-import * as a from './../actions';
-import blankPageReducer from '../reducers/blank-page-reducer'
-import chatSelectionReducer from '../reducers/chat-selection-reducer'
+// import * as a from './../actions';
+import {blankPageReducer} from '../reducers/blank-page-reducer'
+import {chatSelectionReducer} from '../reducers/chat-selection-reducer'
 
 const MessagesControl = (props) => {
   

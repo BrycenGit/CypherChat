@@ -1,9 +1,7 @@
-import { useFirestore, useFirestoreConnect, isLoaded } from 'react-redux-firebase'
-import { useSelector } from 'react-redux'
+import { useFirestore, isLoaded } from 'react-redux-firebase'
 import React, { useState } from 'react';
 import Message from './Message'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import PropTypes from 'prop-types';
 
 function Chats(props) {
   const firestore = useFirestore(); 

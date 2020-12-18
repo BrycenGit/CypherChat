@@ -1,5 +1,5 @@
 
-export default (state = false, action) => {
+export const blankPageReducer = (state = false, action) => {
   switch (action.type) {
   case 'TOGGLE_BLANK':
     return !state;
