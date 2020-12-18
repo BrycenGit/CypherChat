@@ -36,8 +36,6 @@ const MessagesControl = () => {
     dispatch2({type: 'UNSELECT_CHAT'})
   }
 
-  
-
   const handleblankClick = () => {
     dispatch1({type: 'TOGGLE_BLANK'});
   }
