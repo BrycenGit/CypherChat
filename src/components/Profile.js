@@ -1,29 +1,26 @@
-import { useSelector } from 'react-redux'
-import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
+import { useSelector } from "react-redux";
+import { useFirestoreConnect, isLoaded } from "react-redux-firebase";
 
 function Profile() {
+  const currentUserEmail = "brycenbartolome@gmail.com";
 
-  const currentUserEmail = 'brycenbartolome@gmail.com'
+  useFirestoreConnect(["messages"]);
 
-  useFirestoreConnect([ 'messages' ])
+  const messagesList = useSelector((state) => state.firestore.ordered.messages);
 
-  const messagesList = useSelector(state => state.firestore.ordered.messages);
-  
   if (isLoaded(messagesList)) {
     // const sentMessages = messagesList.filter(message => message.sender === currentUserEmail)
-    const receivedMessages = messagesList.filter(message => message.recipient === currentUserEmail)
-    console.log(receivedMessages)
-    return (
-      <>
-
-      </>
-    )
+    const receivedMessages = messagesList.filter(
+      (message) => message.recipient === currentUserEmail
+    );
+    console.log(receivedMessages);
+    return <></>;
   } else {
     return (
       <>
-      <p>Loading...</p>
+        <p>Loading...</p>
       </>
-    )
+    );
   }
 }
 
