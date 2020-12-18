@@ -18,10 +18,10 @@ const MessagesControl = (props) => {
   const [user, loading, error] = useAuthState(firebase.auth());
   // const [blankPage, setBlankPage] = useState(false)
 
-  const [blankPage, dispatch] = useReducer(blankPageReducer);
+  const [blankPage, dispatch] = useReducer(blankPageReducer)
 
   const handleblankClick = () => {
-    dispatch(a.toggleBlank());
+    dispatch({type: 'TOGGLE_BLANK'});
   }
 
   if (blankPage) {
