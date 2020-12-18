@@ -13,7 +13,6 @@ function SignOut() {
   
   return (
     <>
-      <h1>Sign Out</h1>
         <button onClick={doSignOut}>Sign out</button>
     </>
   )
