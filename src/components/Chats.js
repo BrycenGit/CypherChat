@@ -6,22 +6,20 @@ import Message from './Message'
 function Chats(props) {
   
   const firestore = useFirestore();
-
   const { user } = props;
   const [chat, setChat] = useState([])
+  
   
   useFirestoreConnect([{ 
     collection: 'users'
   }])
-
   const usersList = useSelector(state => state.firestore.ordered.users);
+  
   const messagesRef = firestore.collection('messages')
-
   const getMessages = (recip) => {
     var messages = [];
     messagesRef.where("chat", "in",  [[user.email, recip], [ recip, user.email]] )
     .onSnapshot((q) => {
-        
         q.forEach(function(doc) {
             messages.push(doc.data());
         });
@@ -55,6 +53,7 @@ function Chats(props) {
       </form>
       <h1>message List</h1>
         {chat.map((msg) => {
+          console.log('hello')
           return <Message user={user} sender={msg.sender} recipient={msg.recipient} title={msg.title} body={msg.body} id={msg.id} key={msg.id} />
         })}
       </>

@@ -13,17 +13,17 @@ function MessagesList(props) {
 
   const messagesList = useSelector(state => state.firestore.data.messages);
 
-  const getMessages = () => {
-    var messages = [];
-    firestore.collection("messages").where("sender", "==", user.email)
-    .onSnapshot((q) => {
+  // const getMessages = () => {
+  //   var messages = [];
+  //   firestore.collection("messages").where("sender", "==", user.email)
+  //   .onSnapshot((q) => {
         
-        q.forEach(function(doc) {
-            messages.push(doc.data());
-        });
-    });
-    return console.log(messages);
-  }
+  //       q.forEach(function(doc) {
+  //           messages.push(doc.data());
+  //       });
+  //   });
+  //   return console.log(messages);
+  // }
 
   if (isLoaded(messagesList)) {
     // const myMessagesList = messagesList.filter(msg => msg.recipient === user.email)
