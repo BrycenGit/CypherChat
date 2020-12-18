@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux'
 import React, { useState } from 'react';
 import Message from './Message'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import PropTypes from 'prop-types';
 
 function Chats(props) {
-  const {setBlankPage} = props
+  const {handleBlankClick} = props
   const firestore = useFirestore();
   const { user } = props;
   const [chat, setChat] = useState([])
@@ -62,7 +63,7 @@ function Chats(props) {
         <button type="submit">Submit</button>
       </form>
 
-      <button onClick={()=>setBlankPage(!this.state.blankPage)}>Blank</button>
+      <button onClick={props.handleBlankClick}>Blank</button>
       <h1>message List</h1>
         {messages && messages.map((msg) => {
           console.log('hello')
@@ -80,3 +81,7 @@ function Chats(props) {
 }
 
 export default Chats;
+
+Chats.propTypes = {
+  handleBlankClick: PropTypes.func
+}
