@@ -5,7 +5,7 @@ function NewMessageForm(props) {
   
   const firestore = useFirestore();
 
-  const { user } = props;
+  const { currentUser } = props;
 
   useFirestoreConnect([{ 
     collection: 'users'
@@ -31,8 +31,8 @@ function NewMessageForm(props) {
       {
         title: e.target.title.value,
         body: e.target.body.value,
-        chat: [user.email, e.target.recipientEmail.value],
-        sender: user.email,
+        chat: [currentUser.email, e.target.recipientEmail.value],
+        sender: currentUser.email,
         recipient: e.target.recipientEmail.value,
         timeOpen: firestore.FieldValue.serverTimestamp()
         
@@ -40,6 +40,7 @@ function NewMessageForm(props) {
     )
   }
   if (isLoaded(usersList)) {
+    const filteredUsers = usersList.filter(user => user.email !== currentUser.email)
     return (
       <>
       <h1>New Message Form</h1>
@@ -51,7 +52,7 @@ function NewMessageForm(props) {
         <input name="body" type="text" />
         <br />
         <label htmlFor="recipientEmail">Recipient Email</label>
-        {usersList.map((user)=>{
+        {filteredUsers.map((user)=>{
           return (<div key={user.id}>
             <input name="recipientEmail" type="radio" value={user.email} />
             <label htmlFor={user.email} >{user.email}</label>

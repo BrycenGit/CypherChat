@@ -65,9 +65,9 @@ const MessagesControl = (props) => {
         <h1>{user.email}</h1>
         <SignOut />
         <hr />
-        <NewMessageForm user={user} />
+        <NewMessageForm currentUser={user} />
         <hr />
-        <Chats handleblankClick={handleblankClick} user={user} handleSelectChat={handleSelectChat}/>
+        <Chats handleblankClick={handleblankClick} currentUser={user} handleSelectChat={handleSelectChat}/>
         <hr />
         <MessagesList user={user}/>
         {/* <NewTodoForm />
