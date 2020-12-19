@@ -5,7 +5,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 
 function Chats(props) {
   const firestore = useFirestore();
-  const { handleSelectChat, currentUser } = props;
+  const { handleSelectChat, currentUser, toggleSecret } = props;
 
   const usersRef = firestore
     .collection("users")
@@ -16,6 +16,7 @@ function Chats(props) {
     return (
       <>
         <h1>Chats</h1>
+        <button onClick={toggleSecret}>Secrets</button>
         <div class="dropdown">
           <button class="dropbtn">Users</button>
           <div class="dropdown-content">

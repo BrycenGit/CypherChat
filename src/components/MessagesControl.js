@@ -10,10 +10,14 @@ const MessagesControl = (props) => {
   const [blankPage, dispatch1] = useReducer(blankPageReducer);
   const [selectedChat, dispatch2] = useReducer(chatSelectionReducer);
   const [recipient, setRecipient] = useState(null);
-
+  const [secretPage, setSecretPage] = useState(false);
   const handleSelectChat = (recipientEmail) => {
     setRecipient(recipientEmail);
     dispatch2({ type: "SELECT_CHAT", recipient: recipientEmail });
+  };
+
+  const toggleSecret = () => {
+    setSecretPage(!secretPage);
   };
 
   const handleUnselectChat = () => {
@@ -33,6 +37,13 @@ const MessagesControl = (props) => {
         <MessagesList user={user} recipientEmail={recipient} />
       </div>
     );
+  } else if (secretPage) {
+    return (
+      <div>
+        <h1>SECRET</h1>
+        <button onClick={toggleSecret}>home</button>
+      </div>
+    );
   } else if (blankPage) {
     return (
       <div>
@@ -48,6 +59,7 @@ const MessagesControl = (props) => {
           handleblankClick={handleblankClick}
           currentUser={user}
           handleSelectChat={handleSelectChat}
+          toggleSecret={toggleSecret}
         />
       </div>
     );

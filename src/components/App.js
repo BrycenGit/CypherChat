@@ -5,6 +5,8 @@ import SignIn from "./SignIn";
 import SignOut from "./SignOut";
 import firebase from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 function App() {
   const auth = firebase.auth();

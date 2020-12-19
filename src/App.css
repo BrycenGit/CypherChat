@@ -40,11 +40,11 @@ button {
   /* width: 85%; */
   /* margin: 0 auto; */
   /* align-items: center; */
-  height: 10vh;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 728px;
+  /* height: 10vh; */
+  /* position: fixed; */
+  /* bottom: 0; */
+  /* width: 100%; */
+  /* max-width: 728px; */
 }
 
 .flex-form input {
