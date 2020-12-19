@@ -1,6 +1,5 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
-import React, { useState } from "react";
-import Message from "./Message";
+import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 function Chats(props) {
@@ -17,12 +16,12 @@ function Chats(props) {
       <>
         <h1>Chats</h1>
         <button onClick={toggleSecret}>Secrets</button>
-        <div class="dropdown">
-          <button class="dropbtn">Users</button>
-          <div class="dropdown-content">
+        <div className="dropdown">
+          <button className="dropbtn">Users</button>
+          <div className="dropdown-content">
             {usersList.map((user) => {
               return (
-                <p onClick={() => handleSelectChat(user.email)}>
+                <p key={user.id} onClick={() => handleSelectChat(user.email)}>
                   {user.username}
                 </p>
               );
