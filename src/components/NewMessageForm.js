@@ -3,20 +3,15 @@ import React, { useState } from "react";
 
 function NewMessageForm(props) {
   const firestore = useFirestore();
-
   const { currentUser, recipientEmail, messageSent } = props;
-
   const emailArray = [currentUser.email, recipientEmail];
   const sortedEmails = emailArray.sort((a, b) => a.localeCompare(b));
   const collectionName = sortedEmails.join("-");
-
   const chatRef = firestore.collection(collectionName);
-
   const [formValue, setFormValue] = useState("");
 
   async function addMessageToFirestore(e) {
     e.preventDefault();
-
     await chatRef.add({
       body: e.target.body.value,
       sender: currentUser.email,

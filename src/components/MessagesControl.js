@@ -7,11 +7,8 @@ import { chatSelectionReducer } from "../reducers/chat-selection-reducer";
 
 const MessagesControl = (props) => {
   const { user } = props;
-
   const [blankPage, dispatch1] = useReducer(blankPageReducer);
-
   const [selectedChat, dispatch2] = useReducer(chatSelectionReducer);
-
   const [recipient, setRecipient] = useState(null);
 
   const handleSelectChat = (recipientEmail) => {

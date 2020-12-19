@@ -10,8 +10,6 @@ function MessagesList(props) {
   const sortedEmails = emailArray.sort((a, b) => a.localeCompare(b));
   const collectionName = sortedEmails.join("-");
   const messagesRef = firestore.collection(collectionName).orderBy("timeOpen");
-
-  // .where("chat", "array-contains",  sortedEmails.join('-') )
   const [messagesList] = useCollectionData(messagesRef, { idField: "id" });
   const dummy = useRef();
 
@@ -22,11 +20,6 @@ function MessagesList(props) {
   if (isLoaded(messagesList)) {
     return (
       <>
-        {/* <NewMessageForm
-          recipientEmail={recipientEmail}
-          currentUser={user}
-          messageSent={messageSent}
-        /> */}
         <h1>message List</h1>
         <div className="message-box">
           {messagesList &&
