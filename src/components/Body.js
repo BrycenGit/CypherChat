@@ -14,7 +14,7 @@ const Body = () => {
         {user ? (
           <MessagesControl user={user} />
         ) : loading ? (
-          <img src="https://bit.ly/2LPpEt0" alt="loading" />
+          <p></p>
         ) : error ? (
           <p>{error}</p>
         ) : (

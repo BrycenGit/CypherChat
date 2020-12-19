@@ -20,6 +20,7 @@ function SignIn(props) {
           username,
           firstName,
           lastName,
+          id: cred.user.uid,
         });
       })
       .then(() => {
