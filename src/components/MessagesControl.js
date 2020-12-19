@@ -1,22 +1,17 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import "firebase/auth";
-import MessagesList from "./MessagesList";
 import ChatSelector from "./ChatSelector";
-import { blankPageReducer } from "../reducers/blank-page-reducer";
-import { chatSelectionReducer } from "../reducers/chat-selection-reducer";
 import SecretPage from "./SecretPage";
 import SelectedChat from "./SelectedChat";
 
 const MessagesControl = (props) => {
   const { user } = props;
-  const [selectedChat, dispatch2] = useReducer(chatSelectionReducer);
   const [recipient, setRecipient] = useState(null);
   const [secretPage, setSecretPage] = useState(false);
   let currentState = null;
 
   const handleSelectChat = (recipientEmail) => {
     setRecipient(recipientEmail);
-    dispatch2({ type: "SELECT_CHAT", recipient: recipientEmail });
   };
 
   const toggleSecret = () => {
@@ -25,10 +20,9 @@ const MessagesControl = (props) => {
 
   const handleUnselectChat = () => {
     setRecipient(null);
-    dispatch2({ type: "UNSELECT_CHAT" });
   };
 
-  if (selectedChat != null) {
+  if (recipient != null) {
     console.log(recipient);
     currentState = (
       <SelectedChat
