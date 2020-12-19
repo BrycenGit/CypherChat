@@ -22,11 +22,11 @@ function MessagesList(props) {
   if (isLoaded(messagesList)) {
     return (
       <>
-        <NewMessageForm
+        {/* <NewMessageForm
           recipientEmail={recipientEmail}
           currentUser={user}
           messageSent={messageSent}
-        />
+        /> */}
         <h1>message List</h1>
         <div className="message-box">
           {messagesList &&
@@ -47,6 +47,11 @@ function MessagesList(props) {
             })}
           <div ref={dummy}></div>
         </div>
+        <NewMessageForm
+          recipientEmail={recipientEmail}
+          currentUser={user}
+          messageSent={messageSent}
+        />
       </>
     );
   } else {
