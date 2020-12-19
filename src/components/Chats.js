@@ -33,7 +33,7 @@ function Chats(props) {
   } else {
     return (
       <>
-        <p>Loading...</p>
+        <img src="https://bit.ly/2LPpEt0" alt="loading" />
       </>
     );
   }

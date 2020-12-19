@@ -8,7 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 function App() {
   const auth = firebase.auth();
-  const [user, loading] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
 
   function refreshPage() {
     window.location.reload();
@@ -24,7 +24,9 @@ function App() {
         {user ? (
           <MessagesControl user={user} />
         ) : loading ? (
-          <p>Loading...</p>
+          <img src="https://bit.ly/2LPpEt0" alt="loading" />
+        ) : error ? (
+          <p>{error}</p>
         ) : (
           <SignIn />
         )}
