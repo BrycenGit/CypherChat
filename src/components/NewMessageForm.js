@@ -9,7 +9,7 @@ import React, { useState } from "react";
 function NewMessageForm(props) {
   const firestore = useFirestore();
 
-  const { currentUser, recipientEmail } = props;
+  const { currentUser, recipientEmail, messageSent } = props;
 
   const emailArray = [currentUser.email, recipientEmail];
   const sortedEmails = emailArray.sort((a, b) => a.localeCompare(b));
@@ -29,6 +29,7 @@ function NewMessageForm(props) {
       timeOpen: firestore.FieldValue.serverTimestamp(),
     });
     setFormValue("");
+    messageSent();
   }
 
   return (
