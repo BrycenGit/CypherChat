@@ -1,9 +1,4 @@
-import {
-  useFirestore,
-  useFirestoreConnect,
-  isLoaded,
-} from "react-redux-firebase";
-import { useSelector } from "react-redux";
+import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 
 function NewMessageForm(props) {

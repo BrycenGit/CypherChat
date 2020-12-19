@@ -1,21 +1,11 @@
 import React, { useReducer, useState } from "react";
-import firebase from "../firebase";
-import { useFirestore, isLoaded } from "react-redux-firebase";
-import NewMessageForm from "./NewMessageForm";
-import SignIn from "./SignIn";
-import SignOut from "./SignOut";
 import "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
 import MessagesList from "./MessagesList";
 import Chats from "./Chats";
-// import * as a from './../actions';
 import { blankPageReducer } from "../reducers/blank-page-reducer";
 import { chatSelectionReducer } from "../reducers/chat-selection-reducer";
-// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const MessagesControl = (props) => {
-  // const [user, loading, error] = useAuthState(firebase.auth());
-  // console.log(user.email)
   const { user } = props;
 
   const [blankPage, dispatch1] = useReducer(blankPageReducer);
@@ -53,18 +43,6 @@ const MessagesControl = (props) => {
         <button onClick={handleblankClick}>Not Blank</button>
       </div>
     );
-    // } else if (loading) {
-    //   return (
-    //     <div>
-    //     <p>Loading...</p>
-    //     </div>
-    //   )
-    // } else if (error) {
-    //   return (
-    //     <div>
-    //       <p>Error: {error}</p>
-    //     </div>
-    //   )
   } else {
     return (
       <div>
@@ -76,12 +54,6 @@ const MessagesControl = (props) => {
         />
       </div>
     );
-    // } else {
-    //   return (
-    //     <div>
-    //       <SignIn />
-    //     </div>
-    // )
   }
 };
 

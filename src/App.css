@@ -42,7 +42,7 @@ button {
   /* align-items: center; */
 }
 
-input {
+.flex-form input {
   line-height: normal;
   width: 100%;
   font-size: 1.5rem;
@@ -57,7 +57,7 @@ input {
   border-bottom-left-radius: 5px;
 }
 
-form button {
+.flex-form button {
   /* height: 40px; */
   /* flex: 1 0 90px; */
   /* vertical-align: middle; */
@@ -112,14 +112,14 @@ form button {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content p {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content p:hover {
   background-color: #ddd;
 }
 
