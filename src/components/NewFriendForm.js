@@ -5,6 +5,9 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 const NewFriendForm = (props) => {
   const { currentUser, usersList } = props;
   const firestore = useFirestore();
+
+  c;
+
   const pendingRequestsRef = firestore
     .collection("users")
     .doc(currentUser.uid)
