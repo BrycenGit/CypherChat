@@ -66,21 +66,15 @@ const MessagesControl = (props) => {
       />
     );
   } else {
-    if (isLoaded(pendingRequests)) {
-      currentState = (
-        <>
-          <button className="requestToggle" onClick={toggleRequests}>
-            Friend Requests{" "}
-            <span id="requestsTotal">{pendingRequests.length}</span>
-          </button>
-          <ChatSelector
-            currentUser={user}
-            handleSelectChat={handleSelectChat}
-            toggleSecret={toggleSecret}
-          />
-        </>
-      );
-    }
+    currentState = (
+      <>
+        <ChatSelector
+          currentUser={user}
+          handleSelectChat={handleSelectChat}
+          toggleSecret={toggleSecret}
+        />
+      </>
+    );
   }
   if (isLoaded(pendingRequests)) {
     return (
@@ -91,6 +85,12 @@ const MessagesControl = (props) => {
           resetPage={resetPage}
         />
         {currentState}
+      </>
+    );
+  } else {
+    return (
+      <>
+        <p>Loading...</p>
       </>
     );
   }
