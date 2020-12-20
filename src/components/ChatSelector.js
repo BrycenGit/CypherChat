@@ -18,7 +18,7 @@ function Chats(props) {
       <>
         <NewFriendForm usersList={usersList} currentUser={currentUser} />
         <h1>Chats</h1>
-        <button onClick={toggleSecret}>Secrets</button>
+        <p onClick={toggleSecret}>🐱‍👤</p>
         <div className="dropdown">
           <button className="dropbtn">Users</button>
           <div className="dropdown-content">

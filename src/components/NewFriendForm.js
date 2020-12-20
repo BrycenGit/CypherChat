@@ -65,7 +65,9 @@ const NewFriendForm = (props) => {
             console.log(formValue);
           }}
         />
-        <button type="Submit">Send Request</button>
+        <button className="request" type="Submit">
+          Send Request
+        </button>
       </form>
     </>
   );
