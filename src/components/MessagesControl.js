@@ -63,7 +63,7 @@ const MessagesControl = (props) => {
     if (isLoaded(pendingRequests)) {
       currentState = (
         <>
-          <button onClick={toggleRequests}>
+          <button className="requestToggle" onClick={toggleRequests}>
             Friend Requests{" "}
             <span id="requestsTotal">{pendingRequests.length}</span>
           </button>

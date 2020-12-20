@@ -21,7 +21,7 @@ const FriendRequests = (props) => {
         <h1>Pending Requests</h1>
         {pendingRequests.map((user) => {
           return (
-            <div>
+            <div key={user.email}>
               <p>
                 {user.email}
                 <span onClick={() => denyRequest()}>❌</span>

@@ -14,6 +14,8 @@ const NewFriendForm = (props) => {
 
   const [formValue, setFormValue] = useState("");
 
+  const usersRef = firestore.collection("users");
+
   const checkForPendingRequests = (usersEmail) => {
     const array = pendingRequests.filter((user) => user.email === usersEmail);
     console.log(array);
@@ -40,7 +42,21 @@ const NewFriendForm = (props) => {
   //   });
   // };
 
+  const findUserId = (userEmail) => {
+    usersRef
+      .where("email", "==", userEmail)
+      .get()
+      .then((snap) => {
+        return snap[0].id;
+      });
+  };
+
   const addFriend = (e) => {
+    const selectedUserId = findUserId(e.target.recipientEmail.value);
+    console.log(selectedUserId);
+  };
+
+  const addFriend2 = (e) => {
     e.preventDefault();
     const input = e.target.recipientEmail.value;
     if (checkForUser(input) && !checkForPendingRequests(input)) {
