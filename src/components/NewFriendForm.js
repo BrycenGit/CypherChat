@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const NewFriendForm = (props) => {
-  const { currentUser, usersList } = props;
+  const { currentUser, usersList, friendsList } = props;
   const firestore = useFirestore();
 
   const sentRequestsRef = firestore
@@ -47,6 +47,14 @@ const NewFriendForm = (props) => {
 
   const checkForUser = (usersEmail) => {
     const array = usersList.filter((user) => user.email === usersEmail);
+    if (array.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const checkForFriend = (usersEmail) => {
+    const array = friendsList.filter((user) => user.email === usersEmail);
     if (array.length > 0) {
       return true;
     } else {
@@ -108,7 +116,8 @@ const NewFriendForm = (props) => {
       !checkIfImUser(input) &&
       checkForUser(input) &&
       !checkForMyPendingRequests(input) &&
-      !checkForSentRequests(input)
+      !checkForSentRequests(input) &&
+      !checkForFriend(input)
     ) {
       addToOtherUsersPendingRequest(input);
       sentRequestsRef.doc(input).set({

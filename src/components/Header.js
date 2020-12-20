@@ -23,7 +23,11 @@ const Header = (props) => {
         currentUser={currentUser}
         handleSelectChat={handleSelectChat}
       />
-      <NewFriendForm currentUser={currentUser} usersList={usersList} />
+      <NewFriendForm
+        currentUser={currentUser}
+        usersList={usersList}
+        friendsList={friendsList}
+      />
       <SignOut />
     </header>
   );
