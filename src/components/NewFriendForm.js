@@ -13,6 +13,7 @@ const NewFriendForm = (props) => {
   const [pendingRequests] = useCollectionData(pendingRequestsRef);
 
   const [formValue, setFormValue] = useState("");
+  const [matchedId, setMatchedId] = useState(null);
 
   const usersRef = firestore.collection("users");
 
@@ -49,7 +50,16 @@ const NewFriendForm = (props) => {
       .then((snap) => {
         snap.forEach(function (doc) {
           // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
+          // console.log(doc.id, " => ", doc.data());
+          setMatchedId(doc.id);
+          usersRef
+            .doc(doc.id)
+            .collection("pendingRequests")
+            .doc(currentUser.email)
+            .set({
+              email: currentUser.email,
+              id: currentUser.uid,
+            });
         });
       });
   };
