@@ -2,7 +2,7 @@ import MessagesControl from "./MessagesControl";
 import SignIn from "./SignIn";
 import firebase from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Header from "./Header";
+
 const Body = () => {
   const auth = firebase.auth();
   const [user, loading, error] = useAuthState(auth);

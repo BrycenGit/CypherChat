@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "firebase/auth";
-import ChatSelector from "./ChatSelector";
+
 import SecretPage from "./SecretPage";
 import SelectedChat from "./SelectedChat";
 import FriendRequests from "./FriendRequests";
-// import { useCollectionData } from "react-firebase-hooks/firestore";
+
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import Header from "./Header";

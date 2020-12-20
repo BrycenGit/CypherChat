@@ -1,4 +1,3 @@
-import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useFirestore, isLoaded } from "react-redux-firebase";
 
 const FriendRequests = (props) => {

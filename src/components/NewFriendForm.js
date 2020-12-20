@@ -1,4 +1,4 @@
-import { isLoaded, useFirestore } from "react-redux-firebase";
+import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -21,7 +21,6 @@ const NewFriendForm = (props) => {
   const [myPendingRequests] = useCollectionData(myPendingRequestsRef);
 
   const [formValue, setFormValue] = useState("");
-  const [matchedId, setMatchedId] = useState(null);
 
   const usersRef = firestore.collection("users");
 
@@ -77,7 +76,6 @@ const NewFriendForm = (props) => {
         snap.forEach(function (doc) {
           // doc.data() is never undefined for query doc snapshots
           // console.log(doc.id, " => ", doc.data());
-          setMatchedId(doc.id);
           usersRef
             .doc(doc.id)
             .collection("pendingRequests")
@@ -91,7 +89,7 @@ const NewFriendForm = (props) => {
   };
 
   const checkIfImUser = (userEmail) => {
-    if (currentUser.email == userEmail) {
+    if (currentUser.email === userEmail) {
       return true;
     } else {
       return false;

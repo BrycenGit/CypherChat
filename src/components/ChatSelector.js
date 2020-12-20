@@ -1,12 +1,10 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import NewFriendForm from "./NewFriendForm";
-import NewMessageForm from "./NewMessageForm";
 
 function ChatSelector(props) {
   const firestore = useFirestore();
-  const { handleSelectChat, currentUser, toggleSecret } = props;
+  const { handleSelectChat, currentUser } = props;
 
   const usersRef = firestore
     .collection("users")
@@ -18,21 +16,17 @@ function ChatSelector(props) {
   if (isLoaded(usersList)) {
     return (
       <>
-        {/* <NewFriendForm usersList={usersList} currentUser={currentUser} /> */}
-        {/* <h1>Chats</h1> */}
-        {/* <p onClick={toggleSecret}>🐱‍👤</p> */}
         <div className="dropdown">
           <button className="dropbtn">Friends</button>
           <div className="dropdown-content">
             {usersList.map((user) => {
               return (
-                <a
-                  role="button"
+                <button
                   key={user.id}
                   onClick={() => handleSelectChat(user.email)}
                 >
                   {user.email}
-                </a>
+                </button>
               );
             })}
           </div>

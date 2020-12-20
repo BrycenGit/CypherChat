@@ -1,7 +1,7 @@
 import MessagesList from "./MessagesList";
 
 const SelectedChat = (props) => {
-  const { handleUnselectChat, user, recipientEmail } = props;
+  const { user, recipientEmail } = props;
   console.log(recipientEmail);
   return (
     <div>
