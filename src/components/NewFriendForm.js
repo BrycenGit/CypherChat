@@ -8,26 +8,40 @@ const NewFriendForm = (props) => {
     .doc(currentUser.uid)
     .collection("pendingRequests");
 
-  const addFriend = async (e) => {
+  const checkForUser = (usersEmail) => {
+    console.log(usersEmail);
+    const array = usersList.filter((user) => user.email === usersEmail);
+    console.log(usersList);
+    if (array.length > 0) {
+      alert("true");
+    } else {
+      alert("flase");
+    }
+  };
+
+  // const addFriend = async (e) => {
+  //   e.preventDefault();
+  //   await currentUserRef.doc(e.target.recipientEmail.value).set({
+  //     email: e.target.recipientEmail.value,
+  //   });
+  // };
+
+  const addFriend = (e) => {
     e.preventDefault();
-    // await currentUserRef.doc(e.target.recipientEmail.value).set({
-    //   email: e.target.recipientEmail.value,
-    // });
-    await console.log(e.target.user.value);
+    if (checkForUser(e.target.recipientEmail.value)) {
+      // currentUserRef.doc(e.target.recipientEmail.value).set({
+      //   email: e.target.recipientEmail.value,
+      // });
+      return alert("true");
+    } else {
+      return alert("false");
+    }
   };
 
   console.log(usersList);
   return (
     <>
       <form onSubmit={addFriend}>
-        {usersList.map((user) => {
-          return (
-            <div>
-              <input type="checkbox" value={user} name="user[]" />
-              <label htmlFor="user">{user.username}</label>
-            </div>
-          );
-        })}
         <input name="recipientEmail" type="text" placeholder="friends email" />
         <button type="Submit">Send Request</button>
       </form>
