@@ -6,22 +6,37 @@ const NewFriendForm = (props) => {
   const { currentUser, usersList } = props;
   const firestore = useFirestore();
 
-  c;
+  const sentRequestsRef = firestore
+    .collection("users")
+    .doc(currentUser.uid)
+    .collection("sentRequests");
 
-  const pendingRequestsRef = firestore
+  const [sentRequests] = useCollectionData(sentRequestsRef);
+
+  const myPendingRequestsRef = firestore
     .collection("users")
     .doc(currentUser.uid)
     .collection("pendingRequests");
 
-  const [pendingRequests] = useCollectionData(pendingRequestsRef);
+  const [myPendingRequests] = useCollectionData(myPendingRequestsRef);
 
   const [formValue, setFormValue] = useState("");
   const [matchedId, setMatchedId] = useState(null);
 
   const usersRef = firestore.collection("users");
 
-  const checkForPendingRequests = (usersEmail) => {
-    const array = pendingRequests.filter((user) => user.email === usersEmail);
+  const checkForMyPendingRequests = (usersEmail) => {
+    const array = myPendingRequests.filter((user) => user.email === usersEmail);
+    console.log(array);
+    if (array.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const checkForSentRequests = (usersEmail) => {
+    const array = sentRequests.filter((user) => user.email === usersEmail);
     console.log(array);
     if (array.length > 0) {
       return true;
@@ -46,7 +61,7 @@ const NewFriendForm = (props) => {
   //   });
   // };
 
-  const findUserId = (userEmail) => {
+  const addToOtherUsersPendingRequest = (userEmail) => {
     usersRef
       .where("email", "==", userEmail)
       .get()
@@ -69,7 +84,9 @@ const NewFriendForm = (props) => {
 
   const addFriend = (e) => {
     e.preventDefault();
-    const selectedUserId = findUserId(e.target.recipientEmail.value);
+    const selectedUserId = addToOtherUsersPendingRequest(
+      e.target.recipientEmail.value
+    );
     if (isLoaded(selectedUserId)) {
       console.log(selectedUserId);
     }
@@ -79,16 +96,22 @@ const NewFriendForm = (props) => {
   const addFriend2 = (e) => {
     e.preventDefault();
     const input = e.target.recipientEmail.value;
-    if (checkForUser(input) && !checkForPendingRequests(input)) {
-      pendingRequestsRef.doc(e.target.recipientEmail.value).set({
-        email: e.target.recipientEmail.value,
+    if (
+      checkForUser(input) &&
+      !checkForMyPendingRequests(input) &&
+      !checkForSentRequests(input)
+    ) {
+      addToOtherUsersPendingRequest(input);
+      sentRequestsRef.doc(input).set({
+        email: input,
       });
-      console.log("friend requested");
+      alert("friend requested");
     } else {
-      console.log("friend not requested");
+      alert("friend not requested");
     }
     setFormValue("");
   };
+
   return (
     <>
       <form onSubmit={addFriend}>
