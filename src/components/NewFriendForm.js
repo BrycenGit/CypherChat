@@ -1,17 +1,30 @@
 import { useFirestore } from "react-redux-firebase";
 import React from "react";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
 const NewFriendForm = (props) => {
   const { currentUser, usersList } = props;
   const firestore = useFirestore();
-  const currentUserRef = firestore
+  const pendingRequestsRef = firestore
     .collection("users")
     .doc(currentUser.uid)
     .collection("pendingRequests");
 
+  const [pendingRequests] = useCollectionData(pendingRequestsRef);
+  console.log(pendingRequests);
+
+  const checkForPendingRequests = (usersEmail) => {
+    const array = pendingRequests.filter((user) => user.email === usersEmail);
+    console.log(array);
+    if (array.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const checkForUser = (usersEmail) => {
-    console.log(usersEmail);
     const array = usersList.filter((user) => user.email === usersEmail);
-    console.log(usersList);
     if (array.length > 0) {
       return true;
     } else {
@@ -28,17 +41,16 @@ const NewFriendForm = (props) => {
 
   const addFriend = (e) => {
     e.preventDefault();
-    if (checkForUser(e.target.recipientEmail.value)) {
-      // currentUserRef.doc(e.target.recipientEmail.value).set({
-      //   email: e.target.recipientEmail.value,
-      // });
-      console.log("true");
+    const input = e.target.recipientEmail.value;
+    if (checkForUser(input) && !checkForPendingRequests(input)) {
+      pendingRequestsRef.doc(e.target.recipientEmail.value).set({
+        email: e.target.recipientEmail.value,
+      });
+      console.log("friend requested");
     } else {
-      console.log("false");
+      console.log("friend not requested");
     }
   };
-
-  console.log(usersList);
   return (
     <>
       <form onSubmit={addFriend}>
