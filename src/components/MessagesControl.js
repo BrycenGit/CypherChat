@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "firebase/auth";
-
-import SecretPage from "./SecretPage";
 import SelectedChat from "./SelectedChat";
 import FriendRequests from "./FriendRequests";
 
@@ -21,7 +19,7 @@ const MessagesControl = (props) => {
   const [pendingRequests] = useCollectionData(pendingRequestsRef);
 
   const [recipient, setRecipient] = useState(null);
-  const [secretPage, setSecretPage] = useState(false);
+  // const [secretPage, setSecretPage] = useState(false);
   const [requestsPage, setRequestsPage] = useState(false);
   let currentState = null;
 
@@ -50,9 +48,9 @@ const MessagesControl = (props) => {
     setRecipient(recipientEmail);
   };
 
-  const toggleSecret = () => {
-    setSecretPage(!secretPage);
-  };
+  // const toggleSecret = () => {
+  //   setSecretPage(!secretPage);
+  // };
 
   const handleUnselectChat = () => {
     setRecipient(null);
@@ -67,8 +65,6 @@ const MessagesControl = (props) => {
         handleUnselectChat={handleUnselectChat}
       />
     );
-  } else if (secretPage) {
-    currentState = <SecretPage toggleSecret={toggleSecret} />;
   } else if (requestsPage) {
     currentState = (
       <FriendRequests
