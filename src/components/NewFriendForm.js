@@ -104,14 +104,8 @@ const NewFriendForm = (props) => {
   const addFriend = (e) => {
     e.preventDefault();
     const input = e.target.recipientEmail.value;
-    console.log(usersList);
-    console.log(checkForUser(input));
-    console.log(!checkForMyPendingRequests(input));
-    console.log(!checkForSentRequests(input));
-    console.log(checkIfImUser(input));
-    console.log(input);
     if (
-      !currentUser.email === input &&
+      !checkIfImUser(input) &&
       checkForUser(input) &&
       !checkForMyPendingRequests(input) &&
       !checkForSentRequests(input)
