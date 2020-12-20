@@ -18,11 +18,11 @@ function Chats(props) {
   if (isLoaded(usersList)) {
     return (
       <>
-        <NewFriendForm usersList={usersList} currentUser={currentUser} />
+        {/* <NewFriendForm usersList={usersList} currentUser={currentUser} /> */}
         <h1>Chats</h1>
         <p onClick={toggleSecret}>🐱‍👤</p>
         <div className="dropdown">
-          <button className="dropbtn">Users</button>
+          <button className="dropbtn">Friends</button>
           <div className="dropdown-content">
             {usersList.map((user) => {
               return (
