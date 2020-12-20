@@ -16,7 +16,7 @@ function Chats(props) {
   if (isLoaded(usersList)) {
     return (
       <>
-        <NewFriendForm currentUser={currentUser} />
+        <NewFriendForm usersList={usersList} currentUser={currentUser} />
         <h1>Chats</h1>
         <button onClick={toggleSecret}>Secrets</button>
         <div className="dropdown">
