@@ -13,9 +13,9 @@ const NewFriendForm = (props) => {
     const array = usersList.filter((user) => user.email === usersEmail);
     console.log(usersList);
     if (array.length > 0) {
-      alert("true");
+      return true;
     } else {
-      alert("flase");
+      return false;
     }
   };
 
@@ -32,9 +32,9 @@ const NewFriendForm = (props) => {
       // currentUserRef.doc(e.target.recipientEmail.value).set({
       //   email: e.target.recipientEmail.value,
       // });
-      return alert("true");
+      console.log("true");
     } else {
-      return alert("false");
+      console.log("false");
     }
   };
 
