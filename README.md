@@ -42,6 +42,20 @@ For Project
 npm start
 ```
 
+## User Stories
+
+- User can Create account with email and password
+- User can Sign in with email and password
+- User can send friend requests using friends email
+- User can select friend to view history
+- User can send messages to and receive from friends
+- User can sign out
+
+## Work Log && Test Projects
+
+- [Test Project Chat](https://github.com/BrycenGit/Capstone-Chat)
+- [Test Project React Native](https://github.com/BrycenGit/imgShareExpo)
+
 ## Known Bugs
 
 _There are no known bugs at this time._
