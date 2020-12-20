@@ -1,5 +1,5 @@
 import { useFirestore } from "react-redux-firebase";
-import React from "react";
+import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const NewFriendForm = (props) => {
@@ -12,6 +12,8 @@ const NewFriendForm = (props) => {
 
   const [pendingRequests] = useCollectionData(pendingRequestsRef);
   console.log(pendingRequests);
+
+  const [formValue, setFormValue] = useState("");
 
   const checkForPendingRequests = (usersEmail) => {
     const array = pendingRequests.filter((user) => user.email === usersEmail);
@@ -50,11 +52,19 @@ const NewFriendForm = (props) => {
     } else {
       console.log("friend not requested");
     }
+    setFormValue("");
   };
   return (
     <>
       <form onSubmit={addFriend}>
-        <input name="recipientEmail" type="text" placeholder="friends email" />
+        <input
+          name="recipientEmail"
+          value={formValue}
+          onChange={(e1) => {
+            setFormValue(e1.target.value);
+            console.log(formValue);
+          }}
+        />
         <button type="Submit">Send Request</button>
       </form>
     </>
