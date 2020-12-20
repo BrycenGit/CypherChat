@@ -26,9 +26,13 @@ function ChatSelector(props) {
           <div className="dropdown-content">
             {usersList.map((user) => {
               return (
-                <p key={user.id} onClick={() => handleSelectChat(user.email)}>
+                <a
+                  role="button"
+                  key={user.id}
+                  onClick={() => handleSelectChat(user.email)}
+                >
                   {user.email}
-                </p>
+                </a>
               );
             })}
           </div>
