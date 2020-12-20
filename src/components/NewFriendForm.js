@@ -1,4 +1,4 @@
-import { useFirestore } from "react-redux-firebase";
+import { isLoaded, useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -47,13 +47,19 @@ const NewFriendForm = (props) => {
       .where("email", "==", userEmail)
       .get()
       .then((snap) => {
-        return snap[0].id;
+        snap.forEach(function (doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+        });
       });
   };
 
   const addFriend = (e) => {
+    e.preventDefault();
     const selectedUserId = findUserId(e.target.recipientEmail.value);
-    console.log(selectedUserId);
+    if (isLoaded(selectedUserId)) {
+      console.log(selectedUserId);
+    }
   };
 
   const addFriend2 = (e) => {
