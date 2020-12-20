@@ -42,6 +42,18 @@ For Project
 npm start
 ```
 
+## MVP's
+
+> - Build app That has Users
+> - Users can add friends
+> - Users can message friends
+> - Messages are encrypted and decrypted client side
+> - Deploy so people can use
+
+## Stretch Goals
+
+> - Build app in React Native
+
 ## User Stories
 
 - User can Create account with email and password
