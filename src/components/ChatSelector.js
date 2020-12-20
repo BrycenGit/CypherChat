@@ -10,7 +10,9 @@ function Chats(props) {
 
   const usersRef = firestore
     .collection("users")
-    .where("email", "!=", currentUser.email);
+    .doc(currentUser.uid)
+    .collection("friends");
+  // .where("email", "!=", currentUser.email);
   const [usersList] = useCollectionData(usersRef, { idField: "id" });
 
   if (isLoaded(usersList)) {
@@ -25,7 +27,7 @@ function Chats(props) {
             {usersList.map((user) => {
               return (
                 <p key={user.id} onClick={() => handleSelectChat(user.email)}>
-                  {user.username}
+                  {user.email}
                 </p>
               );
             })}
