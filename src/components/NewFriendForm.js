@@ -3,12 +3,15 @@ import { useFirestore } from "react-redux-firebase";
 const NewFriendForm = (props) => {
   const { currentUser } = props;
   const firestore = useFirestore();
-  const currentUserRef = firestore.collection("users").doc(currentUser.uid);
+  const currentUserRef = firestore
+    .collection("users")
+    .doc(currentUser.uid)
+    .collection("pendingRequests");
 
   const addFriend = async (e) => {
     e.preventDefault();
-    await currentUserRef.set({
-      pendingRequests: this.push("hello"),
+    await currentUserRef.doc(e.target.recipientEmail.value).set({
+      email: e.target.recipientEmail.value,
     });
   };
 
