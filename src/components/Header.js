@@ -1,13 +1,12 @@
 import SignOut from "./SignOut";
 
-const Header = () => {
-  function refreshPage() {
-    window.location.reload();
-  }
+const Header = (props) => {
+  const { resetPage, pendingRequestsCount, toggleRequests } = props;
 
   return (
     <header>
-      <h1 onClick={refreshPage}>👽👾🤖</h1>
+      <h1 onClick={resetPage}>👽👾🤖</h1>
+      <h1 onClick={toggleRequests}>🙋‍♀️{pendingRequestsCount}</h1>
       <SignOut />
     </header>
   );

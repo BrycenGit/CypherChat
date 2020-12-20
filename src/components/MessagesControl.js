@@ -7,6 +7,7 @@ import FriendRequests from "./FriendRequests";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useFirestore, isLoaded } from "react-redux-firebase";
+import Header from "./Header";
 
 const MessagesControl = (props) => {
   const { user } = props;
@@ -23,6 +24,11 @@ const MessagesControl = (props) => {
   const [secretPage, setSecretPage] = useState(false);
   const [requestsPage, setRequestsPage] = useState(false);
   let currentState = null;
+
+  const resetPage = () => {
+    setRecipient(null);
+    setRequestsPage(false);
+  };
 
   const toggleRequests = () => {
     setRequestsPage(!requestsPage);
@@ -76,8 +82,18 @@ const MessagesControl = (props) => {
       );
     }
   }
-
-  return <>{currentState}</>;
+  if (isLoaded(pendingRequests)) {
+    return (
+      <>
+        <Header
+          toggleRequests={toggleRequests}
+          pendingRequestsCount={pendingRequests.length}
+          resetPage={resetPage}
+        />
+        {currentState}
+      </>
+    );
+  }
 };
 
 export default MessagesControl;
