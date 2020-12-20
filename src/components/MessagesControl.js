@@ -3,16 +3,29 @@ import "firebase/auth";
 import ChatSelector from "./ChatSelector";
 import SecretPage from "./SecretPage";
 import SelectedChat from "./SelectedChat";
+import FriendRequests from "./FriendRequests";
+// import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useFirestore, isLoaded } from "react-redux-firebase";
 
 const MessagesControl = (props) => {
   const { user } = props;
+
+  const firestore = useFirestore();
+  const pendingRequestsRef = firestore
+    .collection("users")
+    .doc(user.uid)
+    .collection("pendingRequests");
+
+  const [pendingRequests] = useCollectionData(pendingRequestsRef);
+
   const [recipient, setRecipient] = useState(null);
   const [secretPage, setSecretPage] = useState(false);
   const [requestsPage, setRequestsPage] = useState(false);
   let currentState = null;
-  const requestsTotal = "number";
+
   const toggleRequests = () => {
-    setRecipient(!requestsPage);
+    setRequestsPage(!requestsPage);
   };
 
   const handleSelectChat = (recipientEmail) => {
@@ -38,19 +51,30 @@ const MessagesControl = (props) => {
     );
   } else if (secretPage) {
     currentState = <SecretPage toggleSecret={toggleSecret} />;
-  } else {
+  } else if (requestsPage) {
     currentState = (
-      <>
-        <button onClick={toggleRequests}>
-          Friend Requests <span id="requestsTotal">{requestsTotal}</span>
-        </button>
-        <ChatSelector
-          currentUser={user}
-          handleSelectChat={handleSelectChat}
-          toggleSecret={toggleSecret}
-        />
-      </>
+      <FriendRequests
+        pendingRequests={pendingRequests}
+        currentUser={user}
+        toggleRequests={toggleRequests}
+      />
     );
+  } else {
+    if (isLoaded(pendingRequests)) {
+      currentState = (
+        <>
+          <button onClick={toggleRequests}>
+            Friend Requests{" "}
+            <span id="requestsTotal">{pendingRequests.length}</span>
+          </button>
+          <ChatSelector
+            currentUser={user}
+            handleSelectChat={handleSelectChat}
+            toggleSecret={toggleSecret}
+          />
+        </>
+      );
+    }
   }
 
   return <>{currentState}</>;

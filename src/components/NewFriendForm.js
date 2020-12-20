@@ -11,7 +11,6 @@ const NewFriendForm = (props) => {
     .collection("pendingRequests");
 
   const [pendingRequests] = useCollectionData(pendingRequestsRef);
-  console.log(pendingRequests);
 
   const [formValue, setFormValue] = useState("");
 
