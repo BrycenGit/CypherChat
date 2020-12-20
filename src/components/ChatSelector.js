@@ -1,6 +1,8 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import NewFriendForm from "./NewFriendForm";
+import NewMessageForm from "./NewMessageForm";
 
 function Chats(props) {
   const firestore = useFirestore();
@@ -14,6 +16,7 @@ function Chats(props) {
   if (isLoaded(usersList)) {
     return (
       <>
+        <NewFriendForm currentUser={currentUser} />
         <h1>Chats</h1>
         <button onClick={toggleSecret}>Secrets</button>
         <div className="dropdown">
