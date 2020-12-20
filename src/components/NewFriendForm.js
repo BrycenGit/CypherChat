@@ -70,6 +70,7 @@ const NewFriendForm = (props) => {
     if (isLoaded(selectedUserId)) {
       console.log(selectedUserId);
     }
+    setFormValue("");
   };
 
   const addFriend2 = (e) => {

@@ -5,6 +5,8 @@ const FriendRequests = (props) => {
   const firestore = useFirestore();
   const { toggleRequests, currentUser, pendingRequests } = props;
 
+  const usersRef = firestore.collection("users");
+
   const friendsRef = firestore
     .collection("users")
     .doc(currentUser.uid)
@@ -20,6 +22,10 @@ const FriendRequests = (props) => {
     friendsRef.doc(userEmail).set({
       email: userEmail,
       id: id,
+    });
+    usersRef.doc(id).collection("friends").doc(currentUser.email).set({
+      email: currentUser.email,
+      id: currentUser.uid,
     });
     pendingRequestsRef
       .doc(userEmail)
