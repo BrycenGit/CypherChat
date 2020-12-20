@@ -31,6 +31,17 @@ const FriendRequests = (props) => {
       .doc(userEmail)
       .delete()
       .then(() => {
+        console.log("deleted from requests");
+      })
+      .catch((error) => {
+        console.error("error requests", error);
+      });
+    usersRef
+      .doc(id)
+      .collection("sentRequests")
+      .doc(currentUser.email)
+      .delete()
+      .then(() => {
         console.log("succesfully deleted");
       })
       .catch((error) => {
