@@ -20,7 +20,7 @@ function MessagesList(props) {
   if (isLoaded(messagesList)) {
     return (
       <>
-        <h1>message List</h1>
+        <h1>Message List</h1>
         <div className="message-box">
           {messagesList &&
             messagesList.map((msg) => {

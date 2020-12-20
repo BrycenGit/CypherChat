@@ -5,8 +5,6 @@ const SelectedChat = (props) => {
   console.log(recipientEmail);
   return (
     <div>
-      <h1>chat page</h1>
-      <button onClick={handleUnselectChat}>home</button>
       <MessagesList user={user} recipientEmail={recipientEmail} />
     </div>
   );

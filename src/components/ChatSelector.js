@@ -4,7 +4,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import NewFriendForm from "./NewFriendForm";
 import NewMessageForm from "./NewMessageForm";
 
-function Chats(props) {
+function ChatSelector(props) {
   const firestore = useFirestore();
   const { handleSelectChat, currentUser, toggleSecret } = props;
 
@@ -19,8 +19,8 @@ function Chats(props) {
     return (
       <>
         {/* <NewFriendForm usersList={usersList} currentUser={currentUser} /> */}
-        <h1>Chats</h1>
-        <p onClick={toggleSecret}>🐱‍👤</p>
+        {/* <h1>Chats</h1> */}
+        {/* <p onClick={toggleSecret}>🐱‍👤</p> */}
         <div className="dropdown">
           <button className="dropbtn">Friends</button>
           <div className="dropdown-content">
@@ -44,4 +44,4 @@ function Chats(props) {
   }
 }
 
-export default Chats;
+export default ChatSelector;

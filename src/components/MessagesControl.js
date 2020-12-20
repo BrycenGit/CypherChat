@@ -73,15 +73,7 @@ const MessagesControl = (props) => {
       />
     );
   } else {
-    currentState = (
-      <>
-        <ChatSelector
-          currentUser={user}
-          handleSelectChat={handleSelectChat}
-          toggleSecret={toggleSecret}
-        />
-      </>
-    );
+    currentState = <></>;
   }
   if (isLoaded(pendingRequests) && isLoaded(usersList)) {
     return (
@@ -92,6 +84,7 @@ const MessagesControl = (props) => {
           resetPage={resetPage}
           currentUser={user}
           usersList={usersList}
+          handleSelectChat={handleSelectChat}
         />
         {currentState}
       </>
