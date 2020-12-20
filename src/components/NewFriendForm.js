@@ -82,21 +82,36 @@ const NewFriendForm = (props) => {
       });
   };
 
-  const addFriend = (e) => {
-    e.preventDefault();
-    const selectedUserId = addToOtherUsersPendingRequest(
-      e.target.recipientEmail.value
-    );
-    if (isLoaded(selectedUserId)) {
-      console.log(selectedUserId);
+  const checkIfImUser = (userEmail) => {
+    if (currentUser.email == userEmail) {
+      return true;
+    } else {
+      return false;
     }
-    setFormValue("");
   };
 
-  const addFriend2 = (e) => {
+  // const addFriend = (e) => {
+  //   e.preventDefault();
+  //   const selectedUserId = addToOtherUsersPendingRequest(
+  //     e.target.recipientEmail.value
+  //   );
+  //   if (isLoaded(selectedUserId)) {
+  //     console.log(selectedUserId);
+  //   }
+  //   setFormValue("");
+  // };
+
+  const addFriend = (e) => {
     e.preventDefault();
     const input = e.target.recipientEmail.value;
+    console.log(usersList);
+    console.log(checkForUser(input));
+    console.log(!checkForMyPendingRequests(input));
+    console.log(!checkForSentRequests(input));
+    console.log(checkIfImUser(input));
+    console.log(input);
     if (
+      !currentUser.email === input &&
       checkForUser(input) &&
       !checkForMyPendingRequests(input) &&
       !checkForSentRequests(input)

@@ -5,12 +5,15 @@ import ChatSelector from "./ChatSelector";
 const Header = (props) => {
   const {
     currentUser,
-    usersList,
+    friendsList,
     resetPage,
     pendingRequestsCount,
     toggleRequests,
     handleSelectChat,
+    usersList,
   } = props;
+
+  console.log(usersList);
 
   return (
     <header>

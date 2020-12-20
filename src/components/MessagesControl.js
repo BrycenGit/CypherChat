@@ -25,12 +25,17 @@ const MessagesControl = (props) => {
   const [requestsPage, setRequestsPage] = useState(false);
   let currentState = null;
 
-  const usersRef = firestore
+  const usersRef = firestore.collection("users");
+  const [usersList] = useCollectionData(usersRef, { idField: "id" });
+
+  const friendsRef = firestore
     .collection("users")
     .doc(user.uid)
     .collection("friends");
   // .where("email", "!=", currentUser.email);
-  const [usersList] = useCollectionData(usersRef, { idField: "id" });
+  const [friendsList] = useCollectionData(friendsRef, { idField: "id" });
+
+  console.log(usersList);
 
   const resetPage = () => {
     setRecipient(null);
@@ -75,7 +80,7 @@ const MessagesControl = (props) => {
   } else {
     currentState = <></>;
   }
-  if (isLoaded(pendingRequests) && isLoaded(usersList)) {
+  if (isLoaded(pendingRequests) && isLoaded(friendsList)) {
     return (
       <>
         <Header
@@ -83,8 +88,9 @@ const MessagesControl = (props) => {
           pendingRequestsCount={pendingRequests.length}
           resetPage={resetPage}
           currentUser={user}
-          usersList={usersList}
+          friendsList={friendsList}
           handleSelectChat={handleSelectChat}
+          usersList={usersList}
         />
         {currentState}
       </>
