@@ -5,6 +5,17 @@ import styled from "styled-components";
 function SignIn(props) {
   const firestore = useFirestore();
 
+  const [signUp, setSignUp] = useState(false);
+  const [signIn, setSignIn] = useState(false);
+
+  const toggleSignUp = () => {
+    setSignUp(!signUp);
+  };
+
+  const toggleSignIn = () => {
+    setSignIn(!signIn);
+  };
+
   function doSignUp(e) {
     e.preventDefault();
     const auth = firebase.auth();
@@ -13,6 +24,7 @@ function SignIn(props) {
     const username = e.target.username.value;
     const firstName = e.target.firstName.value;
     const lastName = e.target.lastName.value;
+
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((cred) => {
@@ -49,42 +61,51 @@ function SignIn(props) {
         return error;
       });
   }
-
-  return (
-    <>
-      <Container>
-        <p>New User Form</p>
-        <SignInForm onSubmit={doSignUp}>
-          <Label htmlFor="firstName">First Name</Label>
-          <input name="firstName" type="text" />
-          <br />
-          <Label htmlFor="lastName">Last Name</Label>
-          <input name="lastName" type="text" />
-          <br />
-          <Label htmlFor="email">Email</Label>
-          <input name="email" type="text" />
-          <br />
-          <Label htmlFor="password">password</Label>
-          <input name="password" type="password" />
-          <br />
-          <Label htmlFor="username">Username</Label>
-          <input name="username" type="text" />
-          <br />
-          <button type="submit">Submit</button>
-        </SignInForm>
-        <p>Sign In Hi</p>
-        <SignInForm onSubmit={doSignIn}>
-          <Label htmlFor="email">Email</Label>
-          <input name="email" type="text" />
-          <br />
-          <Label htmlFor="password">password</Label>
-          <input name="password" type="password" />
-          <br />
-          <button type="submit">Submit</button>
-        </SignInForm>
-      </Container>
-    </>
-  );
+  if (signUp) {
+    return (
+      <>
+        <Container>
+          <p>New User Form</p>
+          <SignInForm onSubmit={doSignUp}>
+            <Label htmlFor="firstName">First Name</Label>
+            <input name="firstName" type="text" />
+            <br />
+            <Label htmlFor="lastName">Last Name</Label>
+            <input name="lastName" type="text" />
+            <br />
+            <Label htmlFor="email">Email</Label>
+            <input name="email" type="text" />
+            <br />
+            <Label htmlFor="password">password</Label>
+            <input name="password" type="password" />
+            <br />
+            <Label htmlFor="username">Username</Label>
+            <input name="username" type="text" />
+            <br />
+            <button type="submit">Submit</button>
+          </SignInForm>
+        </Container>
+      </>
+    );
+  } else if (signIn) {
+    return (
+      <>
+        <Container>
+          <p>Sign In Hi</p>
+          <SignInForm onSubmit={doSignIn}>
+            <Label htmlFor="email">Email</Label>
+            <input name="email" type="text" />
+            <br />
+            <Label htmlFor="password">password</Label>
+            <input name="password" type="password" />
+            <br />
+            <button type="submit">Submit</button>
+          </SignInForm>
+        </Container>
+      </>
+    );
+  } else {
+  }
 }
 
 export default SignIn;
