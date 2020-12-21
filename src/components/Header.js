@@ -2,6 +2,7 @@ import SignOut from "./SignOut";
 import NewFriendForm from "./NewFriendForm";
 import ChatSelector from "./ChatSelector";
 import styled from "styled-components";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const Header = (props) => {
   const {
@@ -17,29 +18,49 @@ const Header = (props) => {
   console.log(usersList);
 
   return (
-    <NavBar>
-      <div className="box" onClick={resetPage}>
-        👽👾🤖
-      </div>
-      <div className="greenColor box" onClick={toggleRequests}>
-        🙋‍♀️{pendingRequestsCount}
-      </div>
+    <div>
+      {/* <NavBar>
+        <div className="box" onClick={resetPage}>
+          👽👾🤖
+        </div>
+        <div className="greenColor box" onClick={toggleRequests}>
+          🙋‍♀️{pendingRequestsCount}
+        </div>
 
-      <ChatSelector
-        className="box"
-        currentUser={currentUser}
-        handleSelectChat={handleSelectChat}
-      />
+        <ChatSelector
+          className="box"
+          currentUser={currentUser}
+          handleSelectChat={handleSelectChat}
+        />
 
-      <NewFriendForm
-        className="box"
-        currentUser={currentUser}
-        usersList={usersList}
-        friendsList={friendsList}
-      />
+        <NewFriendForm
+          className="box"
+          currentUser={currentUser}
+          usersList={usersList}
+          friendsList={friendsList}
+        />
 
-      <SignOut className="box" />
-    </NavBar>
+        <SignOut className="box" />
+      </NavBar> */}
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">CypherChat</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link onClick={resetPage}>Home</Nav.Link>
+          <ChatSelector
+            className="box"
+            currentUser={currentUser}
+            handleSelectChat={handleSelectChat}
+          />
+          <Nav.Link onClick={toggleRequests}>
+            Requests {pendingRequestsCount}
+          </Nav.Link>
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-info">Search</Button>
+        </Form>
+      </Navbar>
+    </div>
   );
 };
 
