@@ -18,24 +18,27 @@ const Header = (props) => {
 
   return (
     <NavBar>
-      <Box onClick={resetPage}>👽👾🤖</Box>
-      <Box className="greenColor" onClick={toggleRequests}>
+      <div className="box" onClick={resetPage}>
+        👽👾🤖
+      </div>
+      <div className="greenColor box" onClick={toggleRequests}>
         🙋‍♀️{pendingRequestsCount}
-      </Box>
-      <Box>
-        <ChatSelector
-          currentUser={currentUser}
-          handleSelectChat={handleSelectChat}
-        />
-      </Box>
-      <Box>
-        <NewFriendForm
-          currentUser={currentUser}
-          usersList={usersList}
-          friendsList={friendsList}
-        />
-      </Box>
-      <SignOut />
+      </div>
+
+      <ChatSelector
+        className="box"
+        currentUser={currentUser}
+        handleSelectChat={handleSelectChat}
+      />
+
+      <NewFriendForm
+        className="box"
+        currentUser={currentUser}
+        usersList={usersList}
+        friendsList={friendsList}
+      />
+
+      <SignOut className="box" />
     </NavBar>
   );
 };
@@ -49,13 +52,10 @@ const NavBar = styled.div`
   justify-content: space-between;
   min-height: 50px;
   .greenColor {
-    color: Red;
+    color: black;
   }
-`;
-
-const Box = styled.div`
-  font-size: large;
-  height: fit-content;
-  /* width: 100%; */
-  display: block;
+  .box {
+    font-size: large;
+    height: fit-content;
+  }
 `;
