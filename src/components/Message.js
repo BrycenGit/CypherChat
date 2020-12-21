@@ -10,8 +10,10 @@ function Message(props) {
       : "neither";
 
   return (
-    <ChatMessage className={messageClass}>
-      <p>{body}</p>
+    <ChatMessage>
+      <div className={`message ${messageClass}`}>
+        <p>{body}</p>
+      </div>
     </ChatMessage>
   );
 }
@@ -19,21 +21,22 @@ function Message(props) {
 export default Message;
 
 const ChatMessage = styled.div`
-display: flex;
-.sent {
-  flex-direction: row-reverse;
-}
-.sent p {
-  border-radius: 5px;
-  color: white;
-  background-color: #ff00e6;
-  padding: 5px 10px;
-}
-}
-.received p {
-  border-radius: 5px;
-  color: white;
-  background-color: #1086e8;
-  padding: 5px 10px;
-}
+  .message {
+    display: flex;
+  }
+  .sent {
+    flex-direction: row-reverse;
+  }
+  .sent p {
+    border-radius: 5px;
+    color: white;
+    background-color: #ff00e6;
+    padding: 5px 10px;
+  }
+  .received p {
+    border-radius: 5px;
+    color: white;
+    background-color: #1086e8;
+    padding: 5px 10px;
+  }
 `;
