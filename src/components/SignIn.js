@@ -1,7 +1,7 @@
 import { useFirestore } from "react-redux-firebase";
 import firebase from "../firebase";
 import styled from "styled-components";
-
+import { useState } from "react";
 function SignIn(props) {
   const firestore = useFirestore();
 
@@ -84,6 +84,7 @@ function SignIn(props) {
             <br />
             <button type="submit">Submit</button>
           </SignInForm>
+          <button onClick={toggleSignUp}>Back</button>
         </Container>
       </>
     );
@@ -101,10 +102,19 @@ function SignIn(props) {
             <br />
             <button type="submit">Submit</button>
           </SignInForm>
+          <button onClick={toggleSignIn}>Back</button>
         </Container>
       </>
     );
   } else {
+    return (
+      <>
+        <Container>
+          <button onClick={toggleSignIn}>Sign In</button>
+          <button onClick={toggleSignUp}>Sign Up</button>
+        </Container>
+      </>
+    );
   }
 }
 

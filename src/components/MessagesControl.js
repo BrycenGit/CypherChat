@@ -6,6 +6,7 @@ import FriendRequests from "./FriendRequests";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import Header from "./Header";
+import styled from "styled-components";
 
 const MessagesControl = (props) => {
   const { user } = props;
@@ -88,7 +89,9 @@ const MessagesControl = (props) => {
           handleSelectChat={handleSelectChat}
           usersList={usersList}
         />
-        {currentState}
+        <Container>
+          <Item>{currentState}</Item>
+        </Container>
       </>
     );
   } else {
@@ -101,3 +104,15 @@ const MessagesControl = (props) => {
 };
 
 export default MessagesControl;
+
+const Container = styled.div`
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 750px;
+`;
+
+const Item = styled.div`
+  display: flex;
+`;
