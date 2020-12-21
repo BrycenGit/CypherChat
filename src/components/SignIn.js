@@ -99,9 +99,7 @@ const Container = styled.div`
   /* border-radius: 8px; */
 `;
 
-const SignInForm = styled.form`
-  /* display: flex; */
-`;
+const SignInForm = styled.form``;
 
 const Label = styled.label`
   width: 100px;
