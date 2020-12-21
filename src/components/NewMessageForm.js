@@ -24,7 +24,6 @@ function NewMessageForm(props) {
 
   return (
     <>
-      <h1>New Message Form</h1>
       <form onSubmit={addMessageToFirestore}>
         <div className="flex-form">
           <input

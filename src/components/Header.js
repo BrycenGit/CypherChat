@@ -1,6 +1,7 @@
 import SignOut from "./SignOut";
 import NewFriendForm from "./NewFriendForm";
 import ChatSelector from "./ChatSelector";
+import styled from "styled-components";
 
 const Header = (props) => {
   const {
@@ -16,7 +17,7 @@ const Header = (props) => {
   console.log(usersList);
 
   return (
-    <header>
+    <NavBar>
       <h1 onClick={resetPage}>👽👾🤖</h1>
       <h1 onClick={toggleRequests}>🙋‍♀️{pendingRequestsCount}</h1>
       <ChatSelector
@@ -29,8 +30,15 @@ const Header = (props) => {
         friendsList={friendsList}
       />
       <SignOut />
-    </header>
+    </NavBar>
   );
 };
 
 export default Header;
+
+const NavBar = styled.div`
+  background-color: Red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;

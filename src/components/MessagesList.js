@@ -3,6 +3,8 @@ import Message from "./Message";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import NewMessageForm from "./NewMessageForm";
 import { useRef } from "react";
+import styled from "styled-components";
+
 function MessagesList(props) {
   const firestore = useFirestore();
   const { user, recipientEmail } = props;
@@ -20,31 +22,32 @@ function MessagesList(props) {
   if (isLoaded(messagesList)) {
     return (
       <>
-        <h1>Message List</h1>
-        <div className="message-box">
-          {messagesList &&
-            messagesList.map((msg) => {
-              return (
-                <div key={msg.id}>
-                  <Message
-                    user={user}
-                    sender={msg.sender}
-                    recipient={msg.recipient}
-                    title={msg.title}
-                    body={msg.body}
-                    id={msg.id}
-                    key={msg.id}
-                  />
-                </div>
-              );
-            })}
-          <div ref={dummy}></div>
-        </div>
-        <NewMessageForm
-          recipientEmail={recipientEmail}
-          currentUser={user}
-          messageSent={messageSent}
-        />
+        <Container>
+          <MessageBox>
+            {messagesList &&
+              messagesList.map((msg) => {
+                return (
+                  <div key={msg.id}>
+                    <Message
+                      user={user}
+                      sender={msg.sender}
+                      recipient={msg.recipient}
+                      title={msg.title}
+                      body={msg.body}
+                      id={msg.id}
+                      key={msg.id}
+                    />
+                  </div>
+                );
+              })}
+            <div ref={dummy}></div>
+          </MessageBox>
+          <NewMessageForm
+            recipientEmail={recipientEmail}
+            currentUser={user}
+            messageSent={messageSent}
+          />
+        </Container>
       </>
     );
   } else {
@@ -57,3 +60,11 @@ function MessagesList(props) {
 }
 
 export default MessagesList;
+
+const Container = styled.div`
+  background-color: blue;
+`;
+
+const MessageBox = styled.div`
+  background-color: green;
+`;
