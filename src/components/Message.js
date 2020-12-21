@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 function Message(props) {
+  const CryptoJS = require("crypto-js");
+  const decoder = process.env.REACT_APP_TOP_SECRET_ISH;
   const { body, sender, recipient, user } = props;
+  const bytes = CryptoJS.AES.decrypt(body, decoder);
+  const message = bytes.toString(CryptoJS.enc.Utf8);
   const messageClass =
     user.email === sender
       ? "sent"
@@ -12,7 +16,7 @@ function Message(props) {
   return (
     <ChatMessage>
       <div className={`message ${messageClass}`}>
-        <p>{body}</p>
+        <p>{message}</p>
       </div>
     </ChatMessage>
   );
