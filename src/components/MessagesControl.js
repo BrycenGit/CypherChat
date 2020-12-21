@@ -106,13 +106,18 @@ const MessagesControl = (props) => {
 export default MessagesControl;
 
 const Container = styled.div`
-  background-color: blue;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  max-width: 750px;
+  background-color: blue;
+  /* align-items: center; */
+  /* align-self: center; */
+
+  /* flex-direction: column; */
+
+  max-width: 100%;
+  min-height: 90vh;
 `;
 
 const Item = styled.div`
-  display: flex;
+  min-width: 750px;
 `;

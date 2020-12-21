@@ -1,37 +1,37 @@
-.App header {
-  /* display: flex;
+/* .App header {
+  display: flex;
   align-items: center;
-  justify-content: space-between; */
-}
+  justify-content: space-between;
+} */
 
-button .signOut {
-  background-color: #0066ff; /* Green */
+/* button .signOut {
+  background-color: #0066ff; 
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  /* display: inline-block; */
+  display: inline-block;
   cursor: pointer;
   font-size: medium;
   text-transform: uppercase;
-}
+} */
 
-.flex-form {
+/* .flex-form {
   display: flex;
   flex-wrap: wrap;
   border-radius: 8px;
-  /* width: 85%; */
-  /* margin: 0 auto; */
-  /* align-items: center; */
-  /* height: 10vh; */
-  /* position: fixed; */
-  /* bottom: 0; */
-  /* width: 100%; */
-  /* max-width: 728px; */
-}
+  width: 85%;
+  margin: 0 auto;
+  align-items: center;
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 728px;
+} */
 
-.flex-form input {
+/* .flex-form input {
   line-height: normal;
   width: 100%;
   font-size: 1.5rem;
@@ -44,20 +44,21 @@ button .signOut {
   flex: 2 0 250px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-}
+} */
 
-.flex-form button {
-  /* height: 40px; */
-  /* flex: 1 0 90px; */
-  /* vertical-align: middle; */
+/* .flex-form button {
+  height: 40px;
+  flex: 1 0 90px;
+  vertical-align: middle;
   background-color: #ff0000d5;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  /* align-items: center; */
-}
+  align-items: center;
+} */
 .message {
   display: flex;
-  align-items: center;
+  /* position: absolute; */
+  /* align-items: center; */
 }
 
 .sent {
@@ -80,12 +81,12 @@ button .signOut {
 }
 
 .dropbtn {
-  background-color: black;
-  color: white;
+  /* background-color: black; */
+  /* color: white; */
   /* padding: 16px; */
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
+  /* font-size: 16px; */
+  /* border: none; */
+  /* border-radius: 5px; */
 }
 
 .dropdown {
@@ -125,16 +126,16 @@ button .signOut {
   background-color: #3e8e41;
 }
 
-.message-box {
+/* .message-box {
   padding: 10px;
   height: 80vh;
   margin: 10vh 0 10vh;
   overflow-y: scroll;
-  /* display: flex;
-  flex-direction: column; */
-}
+  display: flex;
+  flex-direction: column;
+} */
 
-.message-box::-webkit-scrollbar {
+/* .message-box::-webkit-scrollbar {
   width: 0.25rem;
 }
 
@@ -144,4 +145,4 @@ button .signOut {
 
 .message-box::-webkit-scrollbar-thumb {
   background: #6649b8;
-}
+} */
