@@ -46,7 +46,7 @@ const Header = (props) => {
 export default Header;
 
 const NavBar = styled.div`
-  background-color: Red;
+  background-color: #333333;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -80,18 +80,18 @@ const MessagesControl = (props) => {
   if (isLoaded(pendingRequests) && isLoaded(friendsList)) {
     return (
       <>
-        <Header
-          toggleRequests={toggleRequests}
-          pendingRequestsCount={pendingRequests.length}
-          resetPage={resetPage}
-          currentUser={user}
-          friendsList={friendsList}
-          handleSelectChat={handleSelectChat}
-          usersList={usersList}
-        />
-        <Container>
-          <Item>{currentState}</Item>
-        </Container>
+        <Item>
+          <Header
+            toggleRequests={toggleRequests}
+            pendingRequestsCount={pendingRequests.length}
+            resetPage={resetPage}
+            currentUser={user}
+            friendsList={friendsList}
+            handleSelectChat={handleSelectChat}
+            usersList={usersList}
+          />
+        </Item>
+        <Container>{currentState}</Container>
       </>
     );
   } else {
@@ -119,5 +119,6 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
-  min-width: 750px;
+  /* min-width: 750px; */
+  /* width: 100%; */
 `;
