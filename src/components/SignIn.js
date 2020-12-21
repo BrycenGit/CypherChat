@@ -72,7 +72,7 @@ function SignIn(props) {
           <br />
           <button type="submit">Submit</button>
         </SignInForm>
-        <p>Sign In</p>
+        <p>Sign In Hi</p>
         <SignInForm onSubmit={doSignIn}>
           <Label htmlFor="email">Email</Label>
           <input name="email" type="text" />
