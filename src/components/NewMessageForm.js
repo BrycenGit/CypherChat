@@ -2,6 +2,9 @@ import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import styled from "styled-components";
 function NewMessageForm(props) {
+  const decoder = process.env.TOP_SECRET_ISH;
+  const CryptoJS = require("crypto-js");
+
   const firestore = useFirestore();
   const { currentUser, recipientEmail, messageSent } = props;
   const emailArray = [currentUser.email, recipientEmail];
