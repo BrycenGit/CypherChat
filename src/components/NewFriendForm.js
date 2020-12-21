@@ -1,6 +1,7 @@
 import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import styled from "styled-components";
 
 const NewFriendForm = (props) => {
   const { currentUser, usersList, friendsList } = props;
@@ -130,8 +131,8 @@ const NewFriendForm = (props) => {
 
   return (
     <>
-      <form onSubmit={addFriend}>
-        <input
+      <FriendForm onSubmit={addFriend}>
+        <FriendInput
           name="recipientEmail"
           value={formValue}
           onChange={(e1) => {
@@ -139,12 +140,18 @@ const NewFriendForm = (props) => {
             console.log(formValue);
           }}
         />
-        <button className="request" type="Submit">
-          Send Request
-        </button>
-      </form>
+        <button type="Submit">Send Request</button>
+      </FriendForm>
     </>
   );
 };
 
 export default NewFriendForm;
+
+const FriendForm = styled.form`
+  background-color: black;
+`;
+
+const FriendInput = styled.input`
+  background-color: black;
+`;

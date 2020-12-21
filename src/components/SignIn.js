@@ -1,5 +1,6 @@
 import { useFirestore } from "react-redux-firebase";
 import firebase from "../firebase";
+import styled from "styled-components";
 
 function SignIn(props) {
   const firestore = useFirestore();
@@ -51,37 +52,43 @@ function SignIn(props) {
 
   return (
     <>
-      <h1>New User Form</h1>
-      <form onSubmit={doSignUp}>
-        <label htmlFor="firstName">First Name</label>
-        <input name="firstName" type="text" />
-        <br />
-        <label htmlFor="lastName">Last Name</label>
-        <input name="lastName" type="text" />
-        <br />
-        <label htmlFor="email">Email</label>
-        <input name="email" type="text" />
-        <br />
-        <label htmlFor="password">password</label>
-        <input name="password" type="password" />
-        <br />
-        <label htmlFor="username">Username</label>
-        <input name="username" type="text" />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-      <h1>Sign In</h1>
-      <form onSubmit={doSignIn}>
-        <label htmlFor="email">Email</label>
-        <input name="email" type="text" />
-        <br />
-        <label htmlFor="password">password</label>
-        <input name="password" type="password" />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+      <Container>
+        <p>New User Form</p>
+        <form onSubmit={doSignUp}>
+          <label htmlFor="firstName">First Name</label>
+          <input name="firstName" type="text" />
+          <br />
+          <label htmlFor="lastName">Last Name</label>
+          <input name="lastName" type="text" />
+          <br />
+          <label htmlFor="email">Email</label>
+          <input name="email" type="text" />
+          <br />
+          <label htmlFor="password">password</label>
+          <input name="password" type="password" />
+          <br />
+          <label htmlFor="username">Username</label>
+          <input name="username" type="text" />
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+        <p>Sign In</p>
+        <form onSubmit={doSignIn}>
+          <label htmlFor="email">Email</label>
+          <input name="email" type="text" />
+          <br />
+          <label htmlFor="password">password</label>
+          <input name="password" type="password" />
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </Container>
     </>
   );
 }
 
 export default SignIn;
+
+const Container = styled.div`
+  background-color: red;
+`;
