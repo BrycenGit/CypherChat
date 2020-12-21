@@ -54,34 +54,34 @@ function SignIn(props) {
     <>
       <Container>
         <p>New User Form</p>
-        <form onSubmit={doSignUp}>
-          <label htmlFor="firstName">First Name</label>
+        <SignInForm onSubmit={doSignUp}>
+          <Label htmlFor="firstName">First Name</Label>
           <input name="firstName" type="text" />
           <br />
-          <label htmlFor="lastName">Last Name</label>
+          <Label htmlFor="lastName">Last Name</Label>
           <input name="lastName" type="text" />
           <br />
-          <label htmlFor="email">Email</label>
+          <Label htmlFor="email">Email</Label>
           <input name="email" type="text" />
           <br />
-          <label htmlFor="password">password</label>
+          <Label htmlFor="password">password</Label>
           <input name="password" type="password" />
           <br />
-          <label htmlFor="username">Username</label>
+          <Label htmlFor="username">Username</Label>
           <input name="username" type="text" />
           <br />
           <button type="submit">Submit</button>
-        </form>
+        </SignInForm>
         <p>Sign In</p>
-        <form onSubmit={doSignIn}>
-          <label htmlFor="email">Email</label>
+        <SignInForm onSubmit={doSignIn}>
+          <Label htmlFor="email">Email</Label>
           <input name="email" type="text" />
           <br />
-          <label htmlFor="password">password</label>
+          <Label htmlFor="password">password</Label>
           <input name="password" type="password" />
           <br />
           <button type="submit">Submit</button>
-        </form>
+        </SignInForm>
       </Container>
     </>
   );
@@ -90,5 +90,19 @@ function SignIn(props) {
 export default SignIn;
 
 const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: red;
+  /* border-radius: 8px; */
+`;
+
+const SignInForm = styled.form`
+  /* display: flex; */
+`;
+
+const Label = styled.label`
+  width: 100px;
 `;
