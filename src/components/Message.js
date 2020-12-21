@@ -23,6 +23,7 @@ export default Message;
 const ChatMessage = styled.div`
   .message {
     display: flex;
+    font-size: 1.2rem;
   }
   .sent {
     flex-direction: row-reverse;

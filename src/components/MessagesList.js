@@ -58,11 +58,8 @@ function MessagesList(props) {
 
 export default MessagesList;
 
-const Container = styled.div`
-  background-color: blue;
-`;
-
 const MessageBox = styled.div`
+  background-color: green;
   padding: 15px;
   height: 50vh;
   overflow-y: scroll;

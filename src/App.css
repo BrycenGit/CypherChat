@@ -17,65 +17,6 @@
   text-transform: uppercase;
 } */
 
-/* .flex-form {
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 8px;
-  width: 85%;
-  margin: 0 auto;
-  align-items: center;
-  height: 10vh;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 728px;
-} */
-
-/* .flex-form input {
-  line-height: normal;
-  width: 100%;
-  font-size: 1.5rem;
-  background: black;
-  color: #f9e900;
-  outline: none;
-  border: none;
-  padding: 0 10px;
-  animation: text-flicker 3s linear infinite;
-  flex: 2 0 250px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-} */
-
-/* .flex-form button {
-  height: 40px;
-  flex: 1 0 90px;
-  vertical-align: middle;
-  background-color: #ff0000d5;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  align-items: center;
-} */
-
-.sent {
-  /* flex-direction: row-reverse; */
-  /* background-color: grey; */
-}
-
-.sent p {
-  /* border-radius: 5px;
-  color: white;
-  background-color: #ff00e6;
-  padding: 5px 10px;
-} */
-}
-
-.received p {
-  /* border-radius: 5px;
-  color: white;
-  background-color: #1086e8;
-  padding: 5px 10px; */
-}
-
 .dropbtn {
   /* background-color: black; */
   /* color: white; */
