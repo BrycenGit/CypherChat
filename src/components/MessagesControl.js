@@ -108,7 +108,7 @@ export default MessagesControl;
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  background-color: blue;
+  /* background-color: blue; */
   /* align-items: center; */
   /* align-self: center; */
 
@@ -116,6 +116,7 @@ const Container = styled.div`
 
   max-width: 100%;
   min-height: 90vh;
+  padding-top: 50px;
 `;
 
 const Item = styled.div`
