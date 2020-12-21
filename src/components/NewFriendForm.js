@@ -2,6 +2,7 @@ import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const NewFriendForm = (props) => {
   const { currentUser, usersList, friendsList } = props;
@@ -128,10 +129,11 @@ const NewFriendForm = (props) => {
     }
     setFormValue("");
   };
+  console.log(formValue);
 
   return (
     <>
-      <FriendForm onSubmit={addFriend}>
+      {/* <FriendForm onSubmit={addFriend}>
         <FriendInput
           name="recipientEmail"
           value={formValue}
@@ -141,7 +143,22 @@ const NewFriendForm = (props) => {
           }}
         />
         <button type="Submit">Send Request</button>
-      </FriendForm>
+      </FriendForm> */}
+      <Form onSubmit={addFriend} inline>
+        <FormControl
+          name="recipientEmail"
+          value={formValue}
+          onChange={(e1) => {
+            setFormValue(e1.target.value);
+            console.log(formValue);
+          }}
+          placeholder="friend@email.com"
+          className="mr-sm-2"
+        />
+        <Button type="submit" variant="outline-info">
+          Add Friend
+        </Button>
+      </Form>
     </>
   );
 };

@@ -43,7 +43,7 @@ const Header = (props) => {
         <SignOut className="box" />
       </NavBar> */}
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">CypherChat</Navbar.Brand>
+        <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link onClick={resetPage}>Home</Nav.Link>
           <ChatSelector
@@ -55,10 +55,16 @@ const Header = (props) => {
             Requests {pendingRequestsCount}
           </Nav.Link>
         </Nav>
-        <Form inline>
+        {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-info">Search</Button>
-        </Form>
+        </Form> */}
+        <NewFriendForm
+          className="box"
+          currentUser={currentUser}
+          usersList={usersList}
+          friendsList={friendsList}
+        />
       </Navbar>
     </div>
   );
