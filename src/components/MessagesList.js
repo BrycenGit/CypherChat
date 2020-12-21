@@ -22,32 +22,29 @@ function MessagesList(props) {
   if (isLoaded(messagesList)) {
     return (
       <>
-        <Container>
-          <MessageBox>
-            {messagesList &&
-              messagesList.map((msg) => {
-                return (
-                  <div key={msg.id}>
-                    <Message
-                      user={user}
-                      sender={msg.sender}
-                      recipient={msg.recipient}
-                      title={msg.title}
-                      body={msg.body}
-                      id={msg.id}
-                      key={msg.id}
-                    />
-                  </div>
-                );
-              })}
-            <div ref={dummy}></div>
-          </MessageBox>
-          <NewMessageForm
-            recipientEmail={recipientEmail}
-            currentUser={user}
-            messageSent={messageSent}
-          />
-        </Container>
+        <MessageBox>
+          {messagesList &&
+            messagesList.map((msg) => {
+              return (
+                <Message
+                  key={msg.id}
+                  user={user}
+                  sender={msg.sender}
+                  recipient={msg.recipient}
+                  title={msg.title}
+                  body={msg.body}
+                  id={msg.id}
+                  key={msg.id}
+                />
+              );
+            })}
+          <div ref={dummy}></div>
+        </MessageBox>
+        <NewMessageForm
+          recipientEmail={recipientEmail}
+          currentUser={user}
+          messageSent={messageSent}
+        />
       </>
     );
   } else {
@@ -66,5 +63,16 @@ const Container = styled.div`
 `;
 
 const MessageBox = styled.div`
-  background-color: green;
+  padding: 15px;
+  height: 50vh;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
 `;

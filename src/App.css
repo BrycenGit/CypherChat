@@ -121,24 +121,3 @@
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
 }
-
-/* .message-box {
-  padding: 10px;
-  height: 80vh;
-  margin: 10vh 0 10vh;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .message-box::-webkit-scrollbar {
-  width: 0.25rem;
-}
-
-.message-box::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-.message-box::-webkit-scrollbar-thumb {
-  background: #6649b8;
-} */
