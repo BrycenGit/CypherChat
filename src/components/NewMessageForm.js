@@ -1,8 +1,10 @@
 import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import styled from "styled-components";
+
 function NewMessageForm(props) {
-  const decoder = process.env.TOP_SECRET_ISH;
+  const decoder = process.env.REACT_APP_TOP_SECRET_ISH;
+  console.log(decoder);
   const CryptoJS = require("crypto-js");
 
   const firestore = useFirestore();
@@ -16,7 +18,7 @@ function NewMessageForm(props) {
   async function addMessageToFirestore(e) {
     e.preventDefault();
     await chatRef.add({
-      body: e.target.body.value,
+      body: CryptoJS.AES.encrypt(e.target.body.value, decoder).toString(),
       sender: currentUser.email,
       recipient: recipientEmail,
       timeOpen: firestore.FieldValue.serverTimestamp(),
