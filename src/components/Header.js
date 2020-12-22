@@ -1,4 +1,5 @@
 import SignOut from "./SignOut";
+import firebase from "../firebase";
 import NewFriendForm from "./NewFriendForm";
 import ChatSelector from "./ChatSelector";
 import styled from "styled-components";
@@ -15,7 +16,17 @@ const Header = (props) => {
     usersList,
   } = props;
 
-  console.log(usersList);
+  function doSignOut() {
+    const auth = firebase.auth();
+    auth
+      .signOut()
+      .then(function () {
+        console.log("Successfully signed out!");
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
+  }
 
   return (
     <div>
@@ -55,7 +66,8 @@ const Header = (props) => {
             <Nav.Link onClick={toggleRequests}>
               Requests <span id="count">{pendingRequestsCount}</span>
             </Nav.Link>
-            <SignOut className="box" />
+            <Nav.Link onCLick={doSignOut}>Sign Out</Nav.Link>
+            {/* <SignOut className="box" /> */}
           </Nav>
           {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
