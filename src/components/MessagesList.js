@@ -34,7 +34,6 @@ function MessagesList(props) {
                   title={msg.title}
                   body={msg.body}
                   id={msg.id}
-                  key={msg.id}
                 />
               );
             })}

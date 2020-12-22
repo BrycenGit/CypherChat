@@ -98,17 +98,6 @@ const NewFriendForm = (props) => {
     }
   };
 
-  // const addFriend = (e) => {
-  //   e.preventDefault();
-  //   const selectedUserId = addToOtherUsersPendingRequest(
-  //     e.target.recipientEmail.value
-  //   );
-  //   if (isLoaded(selectedUserId)) {
-  //     console.log(selectedUserId);
-  //   }
-  //   setFormValue("");
-  // };
-
   const addFriend = (e) => {
     e.preventDefault();
     const input = e.target.recipientEmail.value;
@@ -129,21 +118,8 @@ const NewFriendForm = (props) => {
     }
     setFormValue("");
   };
-  console.log(formValue);
-
   return (
     <>
-      {/* <FriendForm onSubmit={addFriend}>
-        <FriendInput
-          name="recipientEmail"
-          value={formValue}
-          onChange={(e1) => {
-            setFormValue(e1.target.value);
-            console.log(formValue);
-          }}
-        />
-        <button type="Submit">Send Request</button>
-      </FriendForm> */}
       <Form onSubmit={addFriend} inline>
         <FormControl
           name="recipientEmail"
@@ -164,11 +140,3 @@ const NewFriendForm = (props) => {
 };
 
 export default NewFriendForm;
-
-const FriendForm = styled.form`
-  background-color: black;
-`;
-
-const FriendInput = styled.input`
-  background-color: black;
-`;

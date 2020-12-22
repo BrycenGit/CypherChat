@@ -1,10 +1,8 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import styled from "styled-components";
-import { useState } from "react";
 const FriendRequests = (props) => {
   const firestore = useFirestore();
-  const { toggleRequests, currentUser, pendingRequests } = props;
-  const [requests, setRequests] = useState(0);
+  const { currentUser, pendingRequests } = props;
 
   const usersRef = firestore.collection("users");
 

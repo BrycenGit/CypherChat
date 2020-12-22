@@ -1,7 +1,7 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { NavDropdown, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 
 function ChatSelector(props) {
   const firestore = useFirestore();

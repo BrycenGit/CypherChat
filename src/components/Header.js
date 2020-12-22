@@ -1,9 +1,8 @@
-import SignOut from "./SignOut";
 import firebase from "../firebase";
 import NewFriendForm from "./NewFriendForm";
 import ChatSelector from "./ChatSelector";
 import styled from "styled-components";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 const Header = (props) => {
   const {
@@ -30,29 +29,6 @@ const Header = (props) => {
 
   return (
     <div>
-      {/* <NavBar>
-        <div className="box" onClick={resetPage}>
-          👽👾🤖
-        </div>
-        <div className="greenColor box" onClick={toggleRequests}>
-          🙋‍♀️{pendingRequestsCount}
-        </div>
-
-        <ChatSelector
-          className="box"
-          currentUser={currentUser}
-          handleSelectChat={handleSelectChat}
-        />
-
-        <NewFriendForm
-          className="box"
-          currentUser={currentUser}
-          usersList={usersList}
-          friendsList={friendsList}
-        />
-
-        <SignOut className="box" />
-      </NavBar> */}
       <NavContainer>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
@@ -68,12 +44,7 @@ const Header = (props) => {
               Requests <span id="count">{pendingRequestsCount}</span>
             </Nav.Link>
             <Nav.Link onClick={doSignOut}>Sign Out</Nav.Link>
-            {/* <SignOut className="box" /> */}
           </Nav>
-          {/* <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
-        </Form> */}
           <NewFriendForm
             className="box"
             currentUser={currentUser}
@@ -88,23 +59,6 @@ const Header = (props) => {
 
 export default Header;
 
-const NavBar = styled.div`
-  background-color: #333333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 50px;
-  .greenColor {
-    color: black;
-  }
-  .box {
-    font-size: large;
-    height: fit-content;
-  }
-  #count {
-    background-color: white;
-  }
-`;
 const NavContainer = styled.div`
   #count {
     background-color: white;
