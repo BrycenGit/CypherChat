@@ -21,7 +21,6 @@ const MessagesControl = (props) => {
   const [pendingRequests] = useCollectionData(pendingRequestsRef);
 
   const [recipient, setRecipient] = useState(null);
-  // const [secretPage, setSecretPage] = useState(false);
   const [requestsPage, setRequestsPage] = useState(false);
   let currentState = null;
 
@@ -32,7 +31,6 @@ const MessagesControl = (props) => {
     .collection("users")
     .doc(user.uid)
     .collection("friends");
-  // .where("email", "!=", currentUser.email);
   const [friendsList] = useCollectionData(friendsRef, { idField: "id" });
 
   console.log(usersList);
@@ -51,10 +49,6 @@ const MessagesControl = (props) => {
     setRequestsPage(false);
     setRecipient(recipientEmail);
   };
-
-  // const toggleSecret = () => {
-  //   setSecretPage(!secretPage);
-  // };
 
   const handleUnselectChat = () => {
     setRecipient(null);
@@ -119,18 +113,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background-color: black;
-  /* align-items: center; */
-  /* align-self: center; */
-
-  /* flex-direction: column; */
-
-  /* max-width: 100%; */
   height: 100%;
   padding-top: 100px;
 `;
 
 const Item = styled.div`
   position: fixed;
-  /* min-width: 750px; */
   width: 100%;
 `;

@@ -62,21 +62,12 @@ const NewFriendForm = (props) => {
     }
   };
 
-  // const addFriend = async (e) => {
-  //   e.preventDefault();
-  //   await currentUserRef.doc(e.target.recipientEmail.value).set({
-  //     email: e.target.recipientEmail.value,
-  //   });
-  // };
-
   const addToOtherUsersPendingRequest = (userEmail) => {
     usersRef
       .where("email", "==", userEmail)
       .get()
       .then((snap) => {
         snap.forEach(function (doc) {
-          // doc.data() is never undefined for query doc snapshots
-          // console.log(doc.id, " => ", doc.data());
           usersRef
             .doc(doc.id)
             .collection("pendingRequests")

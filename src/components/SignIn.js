@@ -136,19 +136,14 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
-  /* border-radius: 8px; */
 `;
 const ButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
   padding: 15px;
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
-  /* background-color: red; */
-  /* border-radius: 8px; */
 `;
 
 const SignInForm = styled.form``;

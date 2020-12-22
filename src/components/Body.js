@@ -9,7 +9,6 @@ const Body = () => {
 
   return (
     <div className="App">
-      {/* <Header /> */}
       <section>
         {user ? (
           <MessagesControl user={user} />

@@ -54,7 +54,6 @@ const MessageForm = styled.form`
   .flex-form {
     display: flex;
     width: 100%;
-    /* background-color: purple; */
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
   }
@@ -68,10 +67,6 @@ const MessageForm = styled.form`
     outline: none;
     border: none;
     padding: 0 10px;
-    /* animation: text-flicker 3s linear infinite; */
-
-    /* flex: 2 0 400px; */
-    /* border-top-left-radius: 4px;  */
     border-bottom-left-radius: 4px;
   }
 

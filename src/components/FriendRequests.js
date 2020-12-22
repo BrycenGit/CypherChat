@@ -89,13 +89,6 @@ const FriendRequests = (props) => {
                   ✔
                 </span>
               </div>
-              {/* <p>
-                {pendingRequests.length === 0 ? (
-                  <div className="request">You have no Pending Requests</div>
-                ) : (
-                  console.log("some")
-                )}
-              </p> */}
             </div>
           );
         })}

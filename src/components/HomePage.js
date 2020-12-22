@@ -15,7 +15,6 @@ const HomePage = () => {
 };
 
 const Home = styled.div`
-  /* background-color: blue; */
   width: 750px;
   color: #dbdbdb;
 `;

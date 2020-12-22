@@ -11,42 +11,11 @@ function ChatSelector(props) {
     .collection("users")
     .doc(currentUser.uid)
     .collection("friends");
-  // .where("email", "!=", currentUser.email);
   const [usersList] = useCollectionData(usersRef, { idField: "id" });
 
   if (isLoaded(usersList)) {
     return (
       <>
-        {/* <div className="dropdown">
-          <button className="dropbtn">Friends</button>
-          <div className="dropdown-content">
-            {usersList.map((user) => {
-              return (
-                <button
-                  key={user.id}
-                  onClick={() => handleSelectChat(user.email)}
-                >
-                  {user.email}
-                </button>
-              );
-            })}
-          </div>
-        </div> */}
-        {/* <div className="dropdown">
-          <Nav.Link className="dropbtn">Chat</Nav.Link>
-          <div className="dropdown-content">
-            {usersList.map((user) => {
-              return (
-                <button
-                  key={user.id}
-                  onClick={() => handleSelectChat(user.email)}
-                >
-                  {user.email}
-                </button>
-              );
-            })}
-          </div>
-        </div> */}
         <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
           {usersList.map((user) => {
             return (
