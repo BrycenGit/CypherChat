@@ -2,8 +2,8 @@ import { useFirestore } from "react-redux-firebase";
 import firebase from "../firebase";
 import styled from "styled-components";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
-function SignIn(props) {
+
+function SignIn() {
   const firestore = useFirestore();
 
   const [signUp, setSignUp] = useState(false);

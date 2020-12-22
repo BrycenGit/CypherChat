@@ -1,8 +1,7 @@
 import { useFirestore } from "react-redux-firebase";
 import React, { useState } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import styled from "styled-components";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Form, FormControl, Button } from "react-bootstrap";
 
 const NewFriendForm = (props) => {
   const { currentUser, usersList, friendsList } = props;
