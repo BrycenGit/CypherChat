@@ -43,10 +43,12 @@ const MessagesControl = (props) => {
   };
 
   const toggleRequests = () => {
+    setRecipient(null);
     setRequestsPage(!requestsPage);
   };
 
   const handleSelectChat = (recipientEmail) => {
+    setRequestsPage(false);
     setRecipient(recipientEmail);
   };
 

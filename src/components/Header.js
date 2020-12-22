@@ -58,6 +58,7 @@ const Header = (props) => {
           <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link onClick={resetPage}>Home</Nav.Link>
+
             <ChatSelector
               className="box"
               currentUser={currentUser}

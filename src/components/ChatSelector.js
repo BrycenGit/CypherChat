@@ -1,7 +1,7 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { NavDropdown, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 function ChatSelector(props) {
   const firestore = useFirestore();
@@ -32,7 +32,7 @@ function ChatSelector(props) {
             })}
           </div>
         </div> */}
-        <div className="dropdown">
+        {/* <div className="dropdown">
           <Nav.Link className="dropbtn">Chat</Nav.Link>
           <div className="dropdown-content">
             {usersList.map((user) => {
@@ -46,7 +46,19 @@ function ChatSelector(props) {
               );
             })}
           </div>
-        </div>
+        </div> */}
+        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+          {usersList.map((user) => {
+            return (
+              <NavDropdown.Item
+                key={user.id}
+                onClick={() => handleSelectChat(user.email)}
+              >
+                {user.email}
+              </NavDropdown.Item>
+            );
+          })}
+        </NavDropdown>
       </>
     );
   } else {
