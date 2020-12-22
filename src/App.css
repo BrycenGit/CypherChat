@@ -57,6 +57,7 @@
 }
 
 .dropdown:hover .dropdown-content {
+  margin-top: 8px;
   display: block;
 }
 

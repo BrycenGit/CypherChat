@@ -155,7 +155,7 @@ const NewFriendForm = (props) => {
           placeholder="friend@email.com"
           className="mr-sm-2"
         />
-        <Button type="submit" variant="outline-info">
+        <Button type="submit" variant="outline-primary">
           Add Friend
         </Button>
       </Form>

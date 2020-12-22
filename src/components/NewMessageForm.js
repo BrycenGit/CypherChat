@@ -39,6 +39,7 @@ function NewMessageForm(props) {
             }}
             autoComplete="off"
             placeHolder={`Message ${recipientEmail}`}
+            required
           />
           <button type="submit">Send</button>
         </div>
@@ -53,7 +54,7 @@ const MessageForm = styled.form`
   .flex-form {
     display: flex;
     width: 100%;
-    background-color: purple;
+    /* background-color: purple; */
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
   }

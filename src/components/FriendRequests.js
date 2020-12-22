@@ -75,10 +75,12 @@ const FriendRequests = (props) => {
   };
 
   if (isLoaded(pendingRequests)) {
-    console.log(pendingRequests);
+    console.log(pendingRequests.length);
     return (
       <RequestsPage>
-        <h1 className="title">Pending Requests</h1>
+        <h1 className="title">
+          Pending Requests <span id="red">{pendingRequests.length}</span>
+        </h1>
         {pendingRequests.map((user) => {
           return (
             <div className="request" key={user.email}>
@@ -89,6 +91,13 @@ const FriendRequests = (props) => {
                   ✔
                 </span>
               </div>
+              {/* <p>
+                {pendingRequests.length === 0 ? (
+                  <div className="request">You have no Pending Requests</div>
+                ) : (
+                  console.log("some")
+                )}
+              </p> */}
             </div>
           );
         })}
@@ -113,5 +122,8 @@ const RequestsPage = styled.div`
     border-radius: 4px;
     justify-content: space-between;
     width: 350px;
+  }
+  #red {
+    color: #ff1654;
   }
 `;
