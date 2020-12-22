@@ -34,14 +34,16 @@ const ChatMessage = styled.div`
   }
   .sent p {
     border-radius: 5px;
-    color: white;
-    background-color: #ff00e6;
+    color: black;
+    background-color: #5bc0eb;
     padding: 5px 10px;
   }
   .received p {
     border-radius: 5px;
-    color: white;
-    background-color: #1086e8;
+    color: black;
+    border-width: 5px;
+    border-color: #17a2b8;
+    background-color: #1effbc;
     padding: 5px 10px;
   }
 `;

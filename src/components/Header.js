@@ -42,30 +42,33 @@ const Header = (props) => {
 
         <SignOut className="box" />
       </NavBar> */}
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link onClick={resetPage}>Home</Nav.Link>
-          <ChatSelector
-            className="box"
-            currentUser={currentUser}
-            handleSelectChat={handleSelectChat}
-          />
-          <Nav.Link onClick={toggleRequests}>
-            Requests {pendingRequestsCount}
-          </Nav.Link>
-        </Nav>
-        {/* <Form inline>
+      <NavContainer>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
+          <Nav className="mr-auto">
+            <Nav.Link onClick={resetPage}>Home</Nav.Link>
+            <ChatSelector
+              className="box"
+              currentUser={currentUser}
+              handleSelectChat={handleSelectChat}
+            />
+            <Nav.Link onClick={toggleRequests}>
+              Requests <span id="count">{pendingRequestsCount}</span>
+            </Nav.Link>
+            <SignOut className="box" />
+          </Nav>
+          {/* <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-info">Search</Button>
         </Form> */}
-        <NewFriendForm
-          className="box"
-          currentUser={currentUser}
-          usersList={usersList}
-          friendsList={friendsList}
-        />
-      </Navbar>
+          <NewFriendForm
+            className="box"
+            currentUser={currentUser}
+            usersList={usersList}
+            friendsList={friendsList}
+          />
+        </Navbar>
+      </NavContainer>
     </div>
   );
 };
@@ -84,5 +87,16 @@ const NavBar = styled.div`
   .box {
     font-size: large;
     height: fit-content;
+  }
+  #count {
+    background-color: white;
+  }
+`;
+const NavContainer = styled.div`
+  #count {
+    background-color: white;
+    color: black;
+    padding: 3px 8px;
+    border-radius: 4px;
   }
 `;

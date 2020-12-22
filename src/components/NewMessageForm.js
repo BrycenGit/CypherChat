@@ -52,7 +52,8 @@ const MessageForm = styled.form`
     display: flex;
     width: 100%;
     background-color: purple;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 
   .flex-form input {
@@ -60,23 +61,23 @@ const MessageForm = styled.form`
     width: 100%;
     font-size: 1.5rem;
     background: black;
-    color: #f9e900;
+    color: #ffe74c;
     outline: none;
     border: none;
     padding: 0 10px;
-    animation: text-flicker 3s linear infinite;
-    
+    /* animation: text-flicker 3s linear infinite; */
+
     /* flex: 2 0 400px; */
-     /* border-top-left-radius: 5px;  */
-    border-bottom-left-radius: 5px;
+    /* border-top-left-radius: 4px;  */
+    border-bottom-left-radius: 4px;
   }
 
   .flex-form button {
     height: 40px;
     flex: 1 0 90px;
-    background-color: #ff0000d5;
+    background-color: #ff1654;
     border: none;
-    border-bottom-left-radius; 2px
 
+    border-bottom-right-radius: 4px;
   }
 `;

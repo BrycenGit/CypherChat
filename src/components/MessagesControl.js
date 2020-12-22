@@ -108,14 +108,14 @@ export default MessagesControl;
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  /* background-color: blue; */
+  background-color: black;
   /* align-items: center; */
   /* align-self: center; */
 
   /* flex-direction: column; */
 
   max-width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
   padding-top: 50px;
 `;
 
