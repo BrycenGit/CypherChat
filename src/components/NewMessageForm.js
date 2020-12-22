@@ -52,6 +52,7 @@ const MessageForm = styled.form`
     display: flex;
     width: 100%;
     background-color: purple;
+    border-bottom-left-radius: 5px;
   }
 
   .flex-form input {
@@ -64,14 +65,18 @@ const MessageForm = styled.form`
     border: none;
     padding: 0 10px;
     animation: text-flicker 3s linear infinite;
+    
     /* flex: 2 0 400px; */
-    /* border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px; */
+     /* border-top-left-radius: 5px;  */
+    border-bottom-left-radius: 5px;
   }
 
   .flex-form button {
     height: 40px;
     flex: 1 0 90px;
     background-color: #ff0000d5;
+    border: none;
+    border-bottom-left-radius; 2px
+
   }
 `;

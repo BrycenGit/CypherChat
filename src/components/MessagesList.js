@@ -60,7 +60,7 @@ export default MessagesList;
 
 const MessageBox = styled.div`
   width: 800px;
-  background-color: green;
+  background-color: #343a40;
   padding: 15px;
   height: 50vh;
   overflow-y: scroll;
