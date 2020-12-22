@@ -37,8 +37,10 @@ function NewMessageForm(props) {
             onChange={(e1) => {
               setFormValue(e1.target.value);
             }}
+            autoComplete="off"
+            placeHolder={`Message ${recipientEmail}`}
           />
-          <button type="submit">Submit</button>
+          <button type="submit">Send</button>
         </div>
       </MessageForm>
     </>

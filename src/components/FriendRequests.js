@@ -1,5 +1,5 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
-
+import styled from "styled-components";
 const FriendRequests = (props) => {
   const firestore = useFirestore();
   const { toggleRequests, currentUser, pendingRequests } = props;
@@ -46,33 +46,51 @@ const FriendRequests = (props) => {
       .catch((error) => {
         console.error("error jerror", error);
       });
-    toggleRequests();
   };
 
-  const denyRequest = () => {
+  const denyRequest = (userEmail, id) => {
     alert("i deny you");
-    toggleRequests();
+    pendingRequestsRef
+      .doc(userEmail)
+      .delete()
+      .then(() => {
+        console.log("deleted from requests");
+      })
+      .catch((error) => {
+        console.error("error requests", error);
+      });
+    usersRef
+      .doc(id)
+      .collection("sentRequests")
+      .doc(currentUser.email)
+      .delete()
+      .then(() => {
+        console.log("succesfully deleted");
+      })
+      .catch((error) => {
+        console.error("error jerror", error);
+      });
   };
 
   if (isLoaded(pendingRequests)) {
     console.log(pendingRequests);
     return (
-      <>
-        <h1>Pending Requests</h1>
+      <RequestsPage>
+        <h1 className="title">Pending Requests</h1>
         {pendingRequests.map((user) => {
           return (
-            <div key={user.email}>
-              <p>
-                {user.email}
-                <span onClick={() => denyRequest()}>❌</span>
+            <div className="request" key={user.email}>
+              <div>{user.email}</div>
+              <div>
+                <span onClick={() => denyRequest(user.email, user.id)}>❌</span>
                 <span onClick={() => acceptRequest(user.email, user.id)}>
                   ✔
                 </span>
-              </p>
+              </div>
             </div>
           );
         })}
-      </>
+      </RequestsPage>
     );
   } else {
     return <p>Loading...</p>;
@@ -80,3 +98,16 @@ const FriendRequests = (props) => {
 };
 
 export default FriendRequests;
+
+const RequestsPage = styled.div`
+  .title {
+    color: #f8f8f8;
+  }
+  .request {
+    display: flex;
+    background-color: #f8f8f8;
+    padding: 5px 9px;
+    border-radius: 4px;
+    justify-content: space-between;
+  }
+`;
