@@ -66,7 +66,7 @@ const Header = (props) => {
             <Nav.Link onClick={toggleRequests}>
               Requests <span id="count">{pendingRequestsCount}</span>
             </Nav.Link>
-            <Nav.Link onCLick={doSignOut}>Sign Out</Nav.Link>
+            <Nav.Link onClick={doSignOut}>Sign Out</Nav.Link>
             {/* <SignOut className="box" /> */}
           </Nav>
           {/* <Form inline>
@@ -107,7 +107,7 @@ const NavBar = styled.div`
 const NavContainer = styled.div`
   #count {
     background-color: white;
-    color: black;
+    color: #6c757d;
     padding: 3px 8px;
     border-radius: 4px;
   }

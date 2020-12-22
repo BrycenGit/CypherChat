@@ -20,7 +20,7 @@
 .dropbtn {
   /* background-color: black; */
   /* color: white; */
-
+  height: 100%;
   /* font-size: 16px; */
   /* border: none; */
   /* border-radius: 5px; */
@@ -61,5 +61,6 @@
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  /* background-color: #3e8e41; */
+  height: 100%;
 }

@@ -7,6 +7,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import Header from "./Header";
 import styled from "styled-components";
+import HomePage from "./HomePage";
 
 const MessagesControl = (props) => {
   const { user } = props;
@@ -75,11 +76,15 @@ const MessagesControl = (props) => {
       />
     );
   } else {
-    currentState = <></>;
+    currentState = (
+      <>
+        <HomePage />
+      </>
+    );
   }
   if (isLoaded(pendingRequests) && isLoaded(friendsList)) {
     return (
-      <>
+      <Page>
         <Item>
           <Header
             toggleRequests={toggleRequests}
@@ -92,7 +97,7 @@ const MessagesControl = (props) => {
           />
         </Item>
         <Container>{currentState}</Container>
-      </>
+      </Page>
     );
   } else {
     return (
@@ -105,6 +110,9 @@ const MessagesControl = (props) => {
 
 export default MessagesControl;
 
+const Page = styled.div`
+  height: 100vh;
+`;
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -114,12 +122,13 @@ const Container = styled.div`
 
   /* flex-direction: column; */
 
-  max-width: 100%;
-  min-height: 100vh;
-  padding-top: 50px;
+  /* max-width: 100%; */
+  height: 100%;
+  padding-top: 100px;
 `;
 
 const Item = styled.div`
+  position: fixed;
   /* min-width: 750px; */
-  /* width: 100%; */
+  width: 100%;
 `;

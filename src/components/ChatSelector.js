@@ -33,7 +33,7 @@ function ChatSelector(props) {
           </div>
         </div> */}
         <div className="dropdown">
-          <Nav.Link className="dropbtn">Friends</Nav.Link>
+          <Nav.Link className="dropbtn">Chat</Nav.Link>
           <div className="dropdown-content">
             {usersList.map((user) => {
               return (

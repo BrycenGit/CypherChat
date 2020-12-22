@@ -1,8 +1,10 @@
 import { useFirestore, isLoaded } from "react-redux-firebase";
 import styled from "styled-components";
+import { useState } from "react";
 const FriendRequests = (props) => {
   const firestore = useFirestore();
   const { toggleRequests, currentUser, pendingRequests } = props;
+  const [requests, setRequests] = useState(0);
 
   const usersRef = firestore.collection("users");
 
@@ -100,6 +102,7 @@ const FriendRequests = (props) => {
 export default FriendRequests;
 
 const RequestsPage = styled.div`
+  width: 750px;
   .title {
     color: #f8f8f8;
   }
@@ -109,5 +112,6 @@ const RequestsPage = styled.div`
     padding: 5px 9px;
     border-radius: 4px;
     justify-content: space-between;
+    width: 350px;
   }
 `;
