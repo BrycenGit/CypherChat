@@ -30,27 +30,32 @@ const Header = (props) => {
   return (
     <div>
       <NavContainer>
-        <Navbar bg="dark" variant="dark">
+        <Navbar expand="lg" className="width" bg="dark" variant="dark">
           <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link onClick={resetPage}>Home</Nav.Link>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link onClick={resetPage}>Home</Nav.Link>
 
-            <ChatSelector
-              className="box"
-              currentUser={currentUser}
-              handleSelectChat={handleSelectChat}
-            />
-            <Nav.Link onClick={toggleRequests}>
-              Requests <span id="count">{pendingRequestsCount}</span>
-            </Nav.Link>
-            <Nav.Link onClick={doSignOut}>Sign Out</Nav.Link>
-          </Nav>
-          <NewFriendForm
-            className="box"
-            currentUser={currentUser}
-            usersList={usersList}
-            friendsList={friendsList}
-          />
+              <ChatSelector
+                className="box"
+                currentUser={currentUser}
+                handleSelectChat={handleSelectChat}
+              />
+              <Nav.Link onClick={toggleRequests}>
+                Requests <span id="count">{pendingRequestsCount}</span>
+              </Nav.Link>
+              <Nav.Link onClick={doSignOut}>Sign Out</Nav.Link>
+            </Nav>
+            <Nav>
+              <NewFriendForm
+                className="box"
+                currentUser={currentUser}
+                usersList={usersList}
+                friendsList={friendsList}
+              />
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       </NavContainer>
     </div>
@@ -65,5 +70,8 @@ const NavContainer = styled.div`
     color: #6c757d;
     padding: 3px 8px;
     border-radius: 4px;
+  }
+  .width {
+    /* min-width: 900px; */
   }
 `;
