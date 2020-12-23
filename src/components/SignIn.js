@@ -55,9 +55,11 @@ function SignIn() {
       .signInWithEmailAndPassword(email, password)
       .then(function () {
         console.log("Successfully signed in!");
-        console.log(auth.currentUser);
       })
       .catch(function (error) {
+        alert(
+          "Unable to sign in. Please check your email and password and try again"
+        );
         console.log(error.message);
         return error;
       });
