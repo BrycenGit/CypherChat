@@ -2,13 +2,21 @@
 
 _20 December 2020_
 
-#### _Simple encrypted messaging app_
+#### _Simple encrypted messaging app with End to End encryption of you message data_
 
 #### By _**Brycen Bartolome**_
 
 ## Description
 
-_My Capstone project for Epicodus School_
+_My Capstone project for Epicodus School, this messaging app is for anyone who wants to keep their private conversations private. You message will be encypted, sent to another User, and then decrypted for them to see. No unencrypted messages sitting in a mass storage database._
+
+## Check it Out
+
+[CypherChat V.1](https://capstone-chat-3c5ec.web.app/)
+
+- Sign in with Google or Email
+- Add me as a friend on the top right [brycenbartolome@gmail.com](brycenbartolome@gmail.com)
+- Currently you can only add friends whom are users
 
 ## Setup/Installation Requirements
 
@@ -51,10 +59,6 @@ For Project
 ```bash
 npm start
 ```
-
-## Website
-
-- Not yet dployed
 
 ## MVP's
 

@@ -118,7 +118,7 @@ const NewFriendForm = (props) => {
             setFormValue(e1.target.value);
             console.log(formValue);
           }}
-          placeholder="friend@email.com"
+          placeholder="Add Friend by Email"
           className="mr-sm-2"
         />
         <Button type="submit" variant="outline-light">
