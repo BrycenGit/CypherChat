@@ -14,7 +14,7 @@ function MessagesList(props) {
   const messagesRef = firestore.collection(collectionName).orderBy("timeOpen");
   const [messagesList] = useCollectionData(messagesRef, { idField: "id" });
   const dummy = useRef();
-
+  console.log(dummy);
   const messageSent = () => {
     dummy.current.scrollIntoView({ behavior: "smooth" });
   };

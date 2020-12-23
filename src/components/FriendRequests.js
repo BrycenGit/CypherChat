@@ -73,7 +73,6 @@ const FriendRequests = (props) => {
   };
 
   if (isLoaded(pendingRequests)) {
-    console.log(pendingRequests.length);
     return (
       <RequestsPage>
         <h1 className="title">

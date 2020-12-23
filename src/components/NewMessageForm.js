@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 function NewMessageForm(props) {
   const decoder = process.env.REACT_APP_TOP_SECRET_ISH;
-  console.log(decoder);
   const CryptoJS = require("crypto-js");
 
   const firestore = useFirestore();
@@ -26,7 +25,6 @@ function NewMessageForm(props) {
     setFormValue("");
     messageSent();
   }
-
   return (
     <>
       <MessageForm onSubmit={addMessageToFirestore}>
@@ -38,7 +36,7 @@ function NewMessageForm(props) {
               setFormValue(e1.target.value);
             }}
             autoComplete="off"
-            placeHolder={`Message ${recipientEmail}`}
+            placeholder={`Message ${recipientEmail}`}
             required
           />
           <button type="submit">Send</button>

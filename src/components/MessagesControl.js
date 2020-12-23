@@ -33,8 +33,6 @@ const MessagesControl = (props) => {
     .collection("friends");
   const [friendsList] = useCollectionData(friendsRef, { idField: "id" });
 
-  console.log(usersList);
-
   const resetPage = () => {
     setRecipient(null);
     setRequestsPage(false);
@@ -55,7 +53,6 @@ const MessagesControl = (props) => {
   };
 
   if (recipient != null) {
-    console.log(recipient);
     currentState = (
       <SelectedChat
         user={user}
