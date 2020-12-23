@@ -112,7 +112,7 @@ const RequestsPage = styled.div`
     padding: 5px 9px;
     border-radius: 4px;
     justify-content: space-between;
-    width: 350px;
+    width: 358px;
   }
   #red {
     color: #ff1654;
