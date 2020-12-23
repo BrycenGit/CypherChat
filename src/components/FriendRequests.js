@@ -101,11 +101,12 @@ const FriendRequests = (props) => {
 export default FriendRequests;
 
 const RequestsPage = styled.div`
-  width: 750px;
+  width: 700px;
   .title {
     color: #f8f8f8;
   }
   .request {
+    margin-bottom: 5px;
     display: flex;
     background-color: #f8f8f8;
     padding: 5px 9px;
