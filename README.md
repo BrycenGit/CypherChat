@@ -88,7 +88,7 @@ npm start
 
 ## Known Bugs
 
-_There are no known bugs at this time._
+_Sizing on Phone is off_
 
 ## Technologies Used
 
