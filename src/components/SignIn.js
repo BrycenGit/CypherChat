@@ -2,6 +2,7 @@ import { useFirestore } from "react-redux-firebase";
 import firebase from "../firebase";
 import styled from "styled-components";
 import { useState } from "react";
+import GoogleSignIn from "./GoogleSignIn";
 
 function SignIn() {
   const firestore = useFirestore();
@@ -122,6 +123,7 @@ function SignIn() {
             </button>
 
             <button onClick={toggleSignUp}>Sign Up</button>
+            <GoogleSignIn />
           </div>
         </ButtonContainer>
       </>
