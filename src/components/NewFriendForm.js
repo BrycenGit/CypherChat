@@ -4,7 +4,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Form, FormControl, Button } from "react-bootstrap";
 
 const NewFriendForm = (props) => {
-  const { currentUser, usersList, friendsList } = props;
+  const { currentUser, usersList, friendsList, setExpandFalse } = props;
   const firestore = useFirestore();
 
   const sentRequestsRef = firestore
@@ -107,6 +107,7 @@ const NewFriendForm = (props) => {
       alert("friend not requested");
     }
     setFormValue("");
+    setExpandFalse();
   };
   return (
     <>

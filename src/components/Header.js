@@ -3,8 +3,15 @@ import NewFriendForm from "./NewFriendForm";
 import ChatSelector from "./ChatSelector";
 import styled from "styled-components";
 import { Navbar, Nav } from "react-bootstrap";
+import { useState } from "react";
 
 const Header = (props) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const setExpandFalse = () => {
+    setExpanded(false);
+  };
+
   const {
     currentUser,
     friendsList,
@@ -30,25 +37,55 @@ const Header = (props) => {
   return (
     <div>
       <NavContainer>
-        <Navbar expand="lg" className="width" bg="dark" variant="dark">
-          <Navbar.Brand onClick={resetPage}>CypherChat</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar
+          expanded={expanded}
+          expand="lg"
+          className="width"
+          bg="dark"
+          variant="dark"
+        >
+          <Navbar.Brand
+            onClick={() => {
+              resetPage();
+              setExpandFalse();
+            }}
+          >
+            CypherChat
+          </Navbar.Brand>
+          <Navbar.Toggle
+            onClick={() => setExpanded(expanded ? false : "expanded")}
+            aria-controls="responsive-navbar-nav"
+          />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link onClick={resetPage}>Home</Nav.Link>
+              <Nav.Link
+                onClick={() => {
+                  resetPage();
+                  setExpandFalse();
+                }}
+              >
+                Home
+              </Nav.Link>
 
               <ChatSelector
+                setExpandFalse={setExpandFalse}
                 className="box"
                 currentUser={currentUser}
                 handleSelectChat={handleSelectChat}
               />
-              <Nav.Link onClick={toggleRequests}>
+              <Nav.Link
+                onClick={() => {
+                  toggleRequests();
+                  setExpandFalse();
+                }}
+              >
                 Requests <span id="count">{pendingRequestsCount}</span>
               </Nav.Link>
               <Nav.Link onClick={doSignOut}>Sign Out</Nav.Link>
             </Nav>
             <Nav>
               <NewFriendForm
+                setExpandFalse={setExpandFalse}
                 className="box"
                 currentUser={currentUser}
                 usersList={usersList}

@@ -5,7 +5,7 @@ import { NavDropdown } from "react-bootstrap";
 
 function ChatSelector(props) {
   const firestore = useFirestore();
-  const { handleSelectChat, currentUser } = props;
+  const { handleSelectChat, currentUser, setExpandFalse } = props;
 
   const usersRef = firestore
     .collection("users")
@@ -21,7 +21,10 @@ function ChatSelector(props) {
             return (
               <NavDropdown.Item
                 key={user.id}
-                onClick={() => handleSelectChat(user.email)}
+                onClick={() => {
+                  handleSelectChat(user.email);
+                  setExpandFalse();
+                }}
               >
                 {user.email}
               </NavDropdown.Item>
