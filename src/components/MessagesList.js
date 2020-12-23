@@ -22,6 +22,7 @@ function MessagesList(props) {
   if (isLoaded(messagesList)) {
     return (
       <>
+        <Title>{recipientEmail}</Title>
         <MessageBox>
           {messagesList &&
             messagesList.map((msg) => {
@@ -58,6 +59,7 @@ function MessagesList(props) {
 export default MessagesList;
 
 const MessageBox = styled.div`
+  background-color: #f8f8f8;
   width: 600px;
   padding: 15px;
   height: 50vh;
@@ -73,4 +75,8 @@ const MessageBox = styled.div`
   ::-webkit-scrollbar-thumb {
     background: #6649b8;
   }
+`;
+
+const Title = styled.div`
+  color: #ffe74c;
 `;
