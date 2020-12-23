@@ -1,4 +1,4 @@
-# _Cap Chat_
+# _CypherChat_
 
 _20 December 2020_
 
