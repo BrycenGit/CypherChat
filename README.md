@@ -12,6 +12,16 @@ _My Capstone project for Epicodus School_
 
 ## Setup/Installation Requirements
 
+1. Before you begin the project setup a firebase account and start a project.
+
+2. Add a .env file to the root directory.
+
+3. Copy the values from your firebase project config into the .env file, see .env.example in root directory for context.
+
+4. On firebase console add firestore database.
+
+5. On firebase console enable email/password authentication
+
 Clone project to desktop.
 
 ```bash
