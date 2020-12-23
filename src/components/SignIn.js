@@ -95,7 +95,7 @@ function SignIn() {
     return (
       <>
         <Container>
-          <p>Sign In Hi</p>
+          <p>Sign In</p>
           <SignInForm onSubmit={doSignIn}>
             <Label htmlFor="email">Email</Label>
             <input name="email" type="text" />
@@ -114,7 +114,7 @@ function SignIn() {
       <>
         <ButtonContainer>
           <div>
-            <h1>CypherChat</h1>
+            <h1>CypherChat ¯\_(ツ)_/¯</h1>
           </div>
           <div>
             <button class btn btn-info onClick={toggleSignIn}>
