@@ -16,7 +16,7 @@ function ChatSelector(props) {
   if (isLoaded(usersList)) {
     return (
       <>
-        <NavDropdown title="Chat" id="collasible-nav-dropdown">
+        <NavDropdown title="Friends" id="collasible-nav-dropdown">
           {usersList.map((user) => {
             return (
               <NavDropdown.Item
